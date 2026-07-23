@@ -59,14 +59,15 @@ export default function Navbar() {
 
           {/* Right Side */}
           <div className="hidden md:flex items-center gap-4">
-            <div className="flex flex-col leading-tight text-right">
+            <div className="flex flex-col gap-1">
               <a href={`tel:${PRIMARY_PHONE_TEL}`} className="flex items-center gap-2 text-white font-bold text-sm">
                 <Phone size={16} style={{ color: "#10B981" }} />
                 {PRIMARY_PHONE_DISPLAY}
               </a>
-              <span className="text-xs text-gray-400">
-                or call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY}</a>
-              </span>
+              <a href={`tel:${SECONDARY_PHONE_TEL}`} className="flex items-center gap-2 font-bold text-sm" style={{ color: "#D4AF37" }}>
+                <Phone size={16} style={{ color: "#D4AF37" }} />
+                {SECONDARY_PHONE_DISPLAY}
+              </a>
             </div>
             <Link
               href="/#contact"
@@ -126,7 +127,7 @@ export default function Navbar() {
               </a>
               <a href={`tel:${SECONDARY_PHONE_TEL}`} className="flex items-center gap-2 font-bold" style={{ color: "#D4AF37" }}>
                 <Phone size={16} style={{ color: "#D4AF37" }} />
-                {SECONDARY_PHONE_DISPLAY} <span className="text-gray-500 font-normal text-sm">(2nd line)</span>
+                {SECONDARY_PHONE_DISPLAY}
               </a>
               <Link
                 href="/#contact"

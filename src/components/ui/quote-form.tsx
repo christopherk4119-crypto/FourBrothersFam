@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { CheckCircle, AlertCircle, Phone, Mail } from "lucide-react";
 import { PRIMARY_PHONE_DISPLAY, SERVICE_TYPES } from "@/lib/config";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 type ServiceType = (typeof SERVICE_TYPES)[number];
 type ContactMethod = "phone" | "email";
@@ -26,22 +27,17 @@ export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormP
     e.preventDefault();
     setStatus("loading");
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...form, contactMethod }),
+    const result = await submitToWeb3Forms({
+      name: form.name,
+      phone: contactMethod === "phone" ? form.phone : undefined,
+      email: contactMethod === "email" ? form.email : undefined,
+      service: form.service,
+      message: form.message,
     });
 
-    if (res.status === 429) {
+    if (!result.success) {
       setStatus("error");
-      setErrorMsg("Too many requests. Please try again later or call us directly.");
-      return;
-    }
-
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      setStatus("error");
-      setErrorMsg(data.error || "Something went wrong.");
+      setErrorMsg(result.error || "Something went wrong.");
       return;
     }
 

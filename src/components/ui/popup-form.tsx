@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { X, AlertCircle, Phone, Mail } from "lucide-react";
 import { PRIMARY_PHONE_DISPLAY, SERVICE_TYPES } from "@/lib/config";
+import { submitToWeb3Forms } from "@/lib/web3forms";
 
 type ContactMethod = "phone" | "email";
 
@@ -30,17 +31,18 @@ export default function PopupForm() {
     setSending(true);
     setError("");
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...form, contactMethod, message: `[Popup Form] ${form.message}` }),
+    const result = await submitToWeb3Forms({
+      name: form.name,
+      phone: contactMethod === "phone" ? form.phone : undefined,
+      email: contactMethod === "email" ? form.email : undefined,
+      service: form.service,
+      message: `[Popup Form] ${form.message}`,
     });
 
     setSending(false);
 
-    if (!res.ok) {
-      const data = await res.json().catch(() => ({}));
-      setError(data.error || "Something went wrong. Please call us directly.");
+    if (!result.success) {
+      setError(result.error || "Something went wrong. Please call us directly.");
       return;
     }
 

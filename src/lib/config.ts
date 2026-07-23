@@ -1,9 +1,11 @@
-// Web3Forms access key — used server-side only (src/app/api/contact/route.ts),
-// never shipped to the client bundle. Set WEB3FORMS_ACCESS_KEY in your Vercel
-// project env vars for production; this fallback is the test key provided
-// for initial setup.
+// Web3Forms access key. Submitted directly from the browser (matching
+// Web3Forms' own documented usage) so it's a public, client-side key by
+// design — Web3Forms' security model is the domain restriction you set on
+// the key in their dashboard, not keeping the key secret. Set
+// NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY in Vercel project env vars for
+// production; this fallback is the key provided for initial setup.
 export const WEB3FORMS_ACCESS_KEY =
-  process.env.WEB3FORMS_ACCESS_KEY || "b8c6ff9f-764f-42e4-aa2d-0e5c46870521";
+  process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "b8c6ff9f-764f-42e4-aa2d-0e5c46870521";
 
 export const BUSINESS_NAME = "Four Brothers Exteriors";
 export const PRIMARY_PHONE_DISPLAY = "(587) 891-9200";
