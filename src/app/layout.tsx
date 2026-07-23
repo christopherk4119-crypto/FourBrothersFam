@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     title: "Four Brothers Exteriors | Calgary Roofing & Exterior Services",
     description:
       "Calgary's trusted local roofing and exterior experts. Honest pricing, quality workmanship, and reliable service. Call (587) 891-9200.",
-    images: [{ url: "/icon.png", width: 512, height: 512, alt: "Four Brothers Exteriors logo" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Calgary Roofing & Exterior Experts" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Four Brothers Exteriors — Calgary's Trusted Roofing & Exterior Experts",
     description: "Roofing, repairs & siding for Calgary homes and businesses. Call (587) 891-9200.",
-    images: ["/icon.png"],
+    images: ["/og-image.png"],
   },
   alternates: { canonical: siteUrl },
 };

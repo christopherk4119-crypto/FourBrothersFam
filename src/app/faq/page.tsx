@@ -20,6 +20,13 @@ export const metadata: Metadata = {
     title: "FAQ | Four Brothers Exteriors Calgary",
     description: "Common questions about roof repair, roof installation, and siding in Calgary. Call (587) 891-9200.",
     url: "https://www.fourbrothersexteriors.com/faq",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Roofing & Exterior FAQs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FAQ | Four Brothers Exteriors Calgary",
+    description: "Common questions about roof repair, roof installation, and siding in Calgary. Call (587) 891-9200.",
+    images: ["/og-image.png"],
   },
 };
 

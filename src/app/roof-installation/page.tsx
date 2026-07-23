@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     title: "Roof Installation Calgary | Four Brothers Exteriors",
     description: "New roof installations for Calgary homes and businesses. Durable materials, honest pricing. Call (587) 891-9200.",
     url: "https://www.fourbrothersexteriors.com/roof-installation",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Roof Installation Calgary" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Roof Installation Calgary | Four Brothers Exteriors",
+    description: "New roof installations for Calgary homes and businesses. Durable materials, honest pricing. Call (587) 891-9200.",
+    images: ["/og-image.png"],
   },
 };
 

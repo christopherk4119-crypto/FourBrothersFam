@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     title: "Siding & Exterior Services Calgary | Four Brothers Exteriors",
     description: "Professional siding and exterior upgrades to protect and improve your home's appearance. Call (587) 891-9200.",
     url: "https://www.fourbrothersexteriors.com/siding-exterior",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Siding & Exterior Services Calgary" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Siding & Exterior Services Calgary | Four Brothers Exteriors",
+    description: "Professional siding and exterior upgrades to protect and improve your home's appearance. Call (587) 891-9200.",
+    images: ["/og-image.png"],
   },
 };
 

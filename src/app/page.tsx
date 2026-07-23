@@ -361,8 +361,18 @@ export default function HomePage() {
 
 function FAQAccordion() {
   const [open, setOpen] = React.useState<number | null>(null);
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqPreview.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
   return (
     <div className="space-y-3">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       {faqPreview.map((item, i) => (
         <FadeIn key={item.q} delay={i * 60}>
           <div

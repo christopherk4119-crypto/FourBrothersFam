@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     title: "Roof Repair Calgary | Four Brothers Exteriors",
     description: "Fast, reliable repairs for leaks, storm damage, and wear. Emergency service available. Call (587) 891-9200.",
     url: "https://www.fourbrothersexteriors.com/roof-repair",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Roof Repair Calgary" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Roof Repair Calgary | Four Brothers Exteriors",
+    description: "Fast, reliable repairs for leaks, storm damage, and wear. Emergency service available. Call (587) 891-9200.",
+    images: ["/og-image.png"],
   },
 };
 
