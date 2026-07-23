@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { PRIMARY_PHONE_TEL, PRIMARY_PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -45,8 +46,8 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-widest">Contact Us</h4>
             <div className="space-y-2">
-              <a href="tel:5878919200" className="block font-bold text-yellow-400 hover:text-yellow-300">(587) 891-9200</a>
-              <a href="mailto:info@fourbrothersexteriors.com" className="block text-gray-400 hover:text-white text-sm">info@fourbrothersexteriors.com <span className="text-gray-600">(placeholder)</span></a>
+              <a href={`tel:${PRIMARY_PHONE_TEL}`} className="block font-bold text-yellow-400 hover:text-yellow-300">{PRIMARY_PHONE_DISPLAY}</a>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="block text-gray-400 hover:text-white text-sm">{CONTACT_EMAIL}</a>
               <p className="text-gray-500 text-sm pt-2">Serving Calgary, AB &amp; surrounding areas</p>
             </div>
           </div>

@@ -11,7 +11,7 @@ export default function LocalBusinessSchema() {
     logo: "https://www.fourbrothersexteriors.com/icon.png",
     image: "https://www.fourbrothersexteriors.com/icon.png",
     telephone: "+15878919200",
-    email: "info@fourbrothersexteriors.com",
+    email: "fourbrothersexterior@gmail.com",
     slogan: "Calgary's Trusted Roofing & Exterior Experts",
     priceRange: "$$",
     currenciesAccepted: "CAD",

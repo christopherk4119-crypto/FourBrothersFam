@@ -6,8 +6,8 @@ Next.js 16 + Tailwind CSS 4 single-site build for **Four Brothers Exteriors**, a
 
 This build ships with a few honest placeholders instead of invented/fake data. Replace these before going live:
 
-1. **Formspree endpoint** — `src/lib/config.ts` → `FORMSPREE_URL`. Create a form at [formspree.io](https://formspree.io) for Four Brothers Exteriors and set it via the `NEXT_PUBLIC_FORMSPREE_URL` env var (or edit the fallback in `config.ts`). Do **not** reuse another business's form ID — that would send leads to the wrong inbox.
-2. **Email address** — `info@fourbrothersexteriors.com` is a placeholder used in `src/lib/config.ts` (`CONTACT_EMAIL`), the footer, homepage contact card, and JSON-LD schema. Update it once a real inbox exists.
+1. **Web3Forms access key** — `src/lib/config.ts` → `WEB3FORMS_ACCESS_KEY`. The quote form and popup form both POST to `src/app/api/contact/route.ts`, which forwards to `https://api.web3forms.com/submit` server-side using this key — the key is never exposed in client JS. Currently set to the test key you provided; before real launch, set `WEB3FORMS_ACCESS_KEY` as an env var in Vercel (project settings) pointing at the production key tied to `fourbrothersexterior@gmail.com`, and confirm the "email to" on that key is set correctly at web3forms.com.
+2. **Email address** — `fourbrothersexterior@gmail.com` is set in `src/lib/config.ts` (`CONTACT_EMAIL`) and used in the footer, homepage contact card, and JSON-LD schema.
 3. **Domain** — the site currently assumes `https://www.fourbrothersexteriors.com` for canonical URLs, Open Graph tags, sitemap, robots.txt, and JSON-LD (`src/app/layout.tsx`, `src/app/sitemap.ts`, `src/app/robots.ts`, `src/components/ui/local-business-schema.tsx`). Update all of these once the real domain is confirmed.
 4. **Team names & photos** — `src/app/page.tsx` (`team` array) currently shows "Name Coming Soon" placeholders and a generic icon avatar for both brothers. Swap in real names, a short bio, and a real headshot (`next/image` with a local file in `public/`) for each.
 5. **Project photos** — the "Our Work" gallery on the homepage and the mini-galleries on each service page are placeholder tiles / empty (`galleryPhotos={[]}`) since no real project photos were provided yet. Once photos arrive:
@@ -40,4 +40,4 @@ npm run dev
 
 ## Deploy
 
-Deploy directly to Vercel (framework auto-detected via `vercel.json`). Set `NEXT_PUBLIC_FORMSPREE_URL` as an environment variable in the Vercel project settings once you have a real Formspree form ID.
+Deploy directly to Vercel (framework auto-detected via `vercel.json`). Set `WEB3FORMS_ACCESS_KEY` as an environment variable in the Vercel project settings once you have a production Web3Forms key.

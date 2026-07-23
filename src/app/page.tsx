@@ -332,7 +332,6 @@ export default function HomePage() {
                     <span className="text-gray-400 text-sm uppercase tracking-widest font-semibold">Email</span>
                   </div>
                   <a href={`mailto:${CONTACT_EMAIL}`} className="text-lg font-bold text-white hover:text-yellow-400 transition-colors">{CONTACT_EMAIL}</a>
-                  <p className="text-gray-600 text-xs mt-1">(placeholder — update once a real inbox is set up)</p>
                 </div>
                 <div className="p-6 rounded-2xl" style={{ background: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.3)" }}>
                   <div className="flex items-center gap-3 mb-2">

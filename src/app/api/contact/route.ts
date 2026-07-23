@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { rateLimit } from "@/lib/rate-limit";
-import { FORMSPREE_URL } from "@/lib/config";
+import { WEB3FORMS_ACCESS_KEY } from "@/lib/config";
 
 export async function POST(req: NextRequest) {
   try {
@@ -20,18 +20,25 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Message too long." }, { status: 400 });
     }
 
-    await fetch(FORMSPREE_URL, {
+    const web3formsRes = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
         name,
         phone,
         email,
         service,
         message,
-        _subject: `New Quote Request — ${name} — ${service}`,
+        subject: `New Quote Request — ${name} — ${service}`,
       }),
     });
+
+    const web3formsData = await web3formsRes.json();
+    if (!web3formsRes.ok || !web3formsData.success) {
+      console.error("Web3Forms error:", web3formsData);
+      return NextResponse.json({ error: "Failed to send. Please call us directly." }, { status: 502 });
+    }
 
     return NextResponse.json({ success: true });
   } catch (err) {

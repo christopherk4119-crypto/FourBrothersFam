@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { X } from "lucide-react";
-import { FORMSPREE_URL, PRIMARY_PHONE_DISPLAY, SERVICE_TYPES } from "@/lib/config";
+import { X, AlertCircle } from "lucide-react";
+import { PRIMARY_PHONE_DISPLAY, SERVICE_TYPES } from "@/lib/config";
 
 export default function PopupForm() {
   const [visible, setVisible] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
 
   useEffect(() => {
@@ -22,11 +24,23 @@ export default function PopupForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await fetch(FORMSPREE_URL, {
+    setSending(true);
+    setError("");
+
+    const res = await fetch("/api/contact", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ ...form, _subject: `[Popup] New Quote Request — ${form.name}`, message: `[Popup Form] ${form.message}` }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...form, message: `[Popup Form] ${form.message}` }),
     });
+
+    setSending(false);
+
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      setError(data.error || "Something went wrong. Please call us directly.");
+      return;
+    }
+
     setSubmitted(true);
   };
 
@@ -104,12 +118,20 @@ export default function PopupForm() {
                 style={{ background: "#1a1a1a", border: "1px solid #333" }}
               />
 
+              {error && (
+                <div className="flex items-center gap-2 p-3 rounded-lg" style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.3)" }}>
+                  <AlertCircle size={16} className="text-red-400 shrink-0" />
+                  <p className="text-red-400 text-xs">{error}</p>
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full py-4 rounded-full font-black text-black text-lg transition-all duration-200 hover:scale-105"
+                disabled={sending}
+                className="w-full py-4 rounded-full font-black text-black text-lg transition-all duration-200 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
                 style={{ background: "linear-gradient(135deg, #FFD700, #FFA500)" }}
               >
-                Send My Request
+                {sending ? "Sending..." : "Send My Request"}
               </button>
             </form>
           </>
