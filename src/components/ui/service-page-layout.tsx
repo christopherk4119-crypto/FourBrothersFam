@@ -2,7 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import Gallery, { GalleryPhoto } from "@/components/ui/gallery";
 import QuoteForm from "@/components/ui/quote-form";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL } from "@/lib/config";
 
 interface ServiceItem {
   title: string;
@@ -19,9 +19,14 @@ interface ServicePageLayoutProps {
   serviceType: "Roof Repair" | "Roof Installation" | "Siding & Exterior";
   services: ServiceItem[];
   galleryPhotos: GalleryPhoto[];
+  learnMore?: {
+    heading: string;
+    paragraphs: string[];
+    highlights: string[];
+  };
 }
 
-function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
+function FadeIn({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -33,7 +38,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
-  return <div ref={ref} className="fade-in" style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
+  return <div ref={ref} className={`fade-in ${className}`} style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
 }
 
 export default function ServicePageLayout({
@@ -43,6 +48,7 @@ export default function ServicePageLayout({
   serviceType,
   services,
   galleryPhotos,
+  learnMore,
 }: ServicePageLayoutProps) {
   return (
     <>
@@ -61,7 +67,7 @@ export default function ServicePageLayout({
             style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.25)", color: "#10B981" }}>
             🏠 Licensed &amp; Insured &nbsp;·&nbsp; Free Estimates
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight" style={{ letterSpacing: "-0.02em" }}>
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight" style={{ letterSpacing: "0.01em" }}>
             {heroHeadline.split(" ").map((word, i, arr) =>
               i === arr.length - 1
                 ? <span key={i} style={{ color: "#10B981" }}> {word}</span>
@@ -77,7 +83,10 @@ export default function ServicePageLayout({
               Call {PRIMARY_PHONE_DISPLAY}
             </a>
           </div>
-          <div className="flex flex-wrap justify-center gap-8 mt-14">
+          <p className="text-gray-500 text-sm mt-5">
+            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+          </p>
+          <div className="flex flex-wrap justify-center gap-8 mt-10">
             {["Honest, Upfront Pricing", "Workmanship Guarantee", "Fast Response"].map((t) => (
               <div key={t} className="flex items-center gap-2 text-sm text-gray-400">
                 <span style={{ color: "#10B981" }}>✓</span> {t}
@@ -138,12 +147,47 @@ export default function ServicePageLayout({
         </section>
       )}
 
+      {/* LEARN MORE */}
+      {learnMore && (
+        <section className="section" style={{ background: "#0d0d0d" }}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              <FadeIn className="lg:col-span-2">
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-6" style={{ letterSpacing: "0.01em" }}>
+                  {learnMore.heading}
+                </h2>
+                <div className="space-y-5 text-gray-300 leading-relaxed">
+                  {learnMore.paragraphs.map((p, i) => (
+                    <p key={i}>{p}</p>
+                  ))}
+                </div>
+              </FadeIn>
+              <FadeIn delay={100}>
+                <div className="rounded-2xl p-7 lg:sticky lg:top-28" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.15)" }}>
+                  <h3 className="text-sm font-bold uppercase tracking-widest mb-5" style={{ color: "#10B981" }}>At a Glance</h3>
+                  <ul className="space-y-3 mb-6">
+                    {learnMore.highlights.map((h) => (
+                      <li key={h} className="flex items-start gap-2 text-sm text-gray-300">
+                        <span style={{ color: "#10B981" }} className="mt-0.5">✓</span> {h}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="#quote" className="btn-gold block text-center px-6 py-3 text-sm font-black">
+                    Get Your Free Quote
+                  </a>
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* QUOTE FORM */}
       <section className="section" id="quote" style={{ background: "#0a0a0a" }}>
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <h2 className="section-heading">Get Your Free <span>Quote</span></h2>
-            <p className="section-subheading">Tell us about your project — we&apos;ll call you back with honest pricing.</p>
+            <p className="section-subheading">Tell us about your project — we&apos;ll get back to you with honest pricing.</p>
           </FadeIn>
           <FadeIn delay={100}>
             <div className="rounded-2xl p-8" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.15)", boxShadow: "0 0 60px rgba(16,185,129,0.04)" }}>

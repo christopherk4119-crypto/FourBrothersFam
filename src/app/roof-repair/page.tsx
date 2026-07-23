@@ -44,7 +44,32 @@ const faqs = [
     q: "How much does roof repair cost in Calgary?",
     a: "Minor repairs like flashing or a small section of shingles typically cost less, while larger repairs involving structural or widespread damage cost more. We give you a clear, itemized quote before any work begins — no hidden fees.",
   },
+  {
+    q: "Is my roof leaking water?",
+    a: "If your roof uses tile and the tiles have reached the end of their service life, the roof usually needs a full recover rather than a spot patch. Part of doing that right is installing proper water-resistant underlayment beneath the tiles during the re-cover, so your roof stays protected against leaks for years, not just months.",
+  },
+  {
+    q: "Are my rain gutters worn?",
+    a: "Sagging, pulling-away, cracked, or overflowing gutters put your roofline and foundation at risk. Call us to inspect and renew worn rain gutters on your roof before they cause water damage to your fascia, siding, or basement.",
+  },
 ];
+
+const learnMore = {
+  heading: "Roof Repair in Calgary — Fast, Honest, and Built to Last",
+  paragraphs: [
+    "Most roof problems don't start as emergencies — they start as a lifted shingle, a cracked seal around a vent, or a gutter that's just slightly out of pitch. Left alone, Calgary's freeze-thaw cycles turn small issues into real leaks fast. When you call us, we start with a full inspection of the roof, not just the spot you're worried about, because water has a habit of traveling before it shows up as a stain on your ceiling. That's how we catch the actual source of a leak instead of patching a symptom.",
+    "For storm and hail damage, we document everything thoroughly so you have what you need if you're filing an insurance claim, and we'll give you a straight answer on whether a targeted repair is enough or whether the damage is widespread enough that a fuller recover makes more sense. If your roof uses tile and the coverings have expired, that usually means a full recover with fresh water-resistant underlayment laid beneath the tile — patch jobs on an expired tile roof rarely hold. The same logic applies to rain gutters: sagging, pulling away from the fascia, or overflowing gutters are a repair issue today and a foundation or siding issue tomorrow if they're ignored.",
+    "Emergency calls get priority. If you've got an active leak, storm damage, or anything putting the inside of your home at risk, we aim for same-day or next-day response with temporary tarping if needed to stop the damage while we schedule the permanent fix. Whatever the job, the quote you get up front is honest and itemized — no inflated \"emergency\" pricing just because the timeline is tight.",
+  ],
+  highlights: [
+    "Full-roof inspection, not just a spot check",
+    "Leak, flashing, and shingle repair",
+    "Storm & hail damage assessment",
+    "Gutter and eavestrough repair",
+    "Emergency service, same/next-day response",
+    "Clear, itemized pricing before work starts",
+  ],
+};
 
 export default function RoofRepairPage() {
   return (
@@ -56,6 +81,7 @@ export default function RoofRepairPage() {
         serviceType="Roof Repair"
         services={services}
         galleryPhotos={[]}
+        learnMore={learnMore}
       />
       <FAQSection faqs={faqs} heading="Roof Repair FAQ" subheading="What Calgary homeowners ask about roof repair and leaks." />
     </>

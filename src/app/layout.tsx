@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
@@ -7,6 +7,7 @@ import PopupForm from "@/components/ui/popup-form";
 import LocalBusinessSchema from "@/components/ui/local-business-schema";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "700", "900"] });
+const oswald = Oswald({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display" });
 
 const siteUrl = "https://www.fourbrothersexteriors.com";
 
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-CA" className={inter.className}>
+    <html lang="en-CA" className={`${inter.className} ${oswald.variable}`}>
       <head>
         <LocalBusinessSchema />
       </head>

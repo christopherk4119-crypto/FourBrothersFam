@@ -1,15 +1,17 @@
 "use client";
 import React, { useState } from "react";
-import { CheckCircle, AlertCircle } from "lucide-react";
+import { CheckCircle, AlertCircle, Phone, Mail } from "lucide-react";
 import { PRIMARY_PHONE_DISPLAY, SERVICE_TYPES } from "@/lib/config";
 
 type ServiceType = (typeof SERVICE_TYPES)[number];
+type ContactMethod = "phone" | "email";
 
 interface QuoteFormProps {
   defaultService?: ServiceType;
 }
 
 export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormProps) {
+  const [contactMethod, setContactMethod] = useState<ContactMethod>("phone");
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -27,7 +29,7 @@ export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormP
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
+      body: JSON.stringify({ ...form, contactMethod }),
     });
 
     if (res.status === 429) {
@@ -37,7 +39,7 @@ export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormP
     }
 
     if (!res.ok) {
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       setStatus("error");
       setErrorMsg(data.error || "Something went wrong.");
       return;
@@ -52,7 +54,7 @@ export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormP
         <CheckCircle size={64} className="mx-auto mb-4" style={{ color: "#10B981" }} />
         <h3 className="text-3xl font-black text-white mb-2">Quote Request Sent!</h3>
         <p className="text-gray-300 text-lg">
-          We&apos;ll call you back shortly at <span style={{ color: "#10B981" }}>{PRIMARY_PHONE_DISPLAY}</span>.
+          We&apos;ll get back to you shortly. In a hurry? Call <span style={{ color: "#10B981" }}>{PRIMARY_PHONE_DISPLAY}</span>.
         </p>
       </div>
     );
@@ -70,24 +72,6 @@ export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormP
           className="px-4 py-3 rounded-lg text-white placeholder-gray-500 text-sm"
           style={{ background: "#1a1a1a", border: "1px solid #333" }}
         />
-        <input
-          type="tel"
-          placeholder="Phone Number"
-          required
-          value={form.phone}
-          onChange={(e) => setForm({ ...form, phone: e.target.value })}
-          className="px-4 py-3 rounded-lg text-white placeholder-gray-500 text-sm"
-          style={{ background: "#1a1a1a", border: "1px solid #333" }}
-        />
-        <input
-          type="email"
-          placeholder="Email Address"
-          required
-          value={form.email}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-          className="px-4 py-3 rounded-lg text-white placeholder-gray-500 text-sm"
-          style={{ background: "#1a1a1a", border: "1px solid #333" }}
-        />
         <select
           required
           value={form.service}
@@ -99,6 +83,60 @@ export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormP
             <option key={s} value={s}>{s}</option>
           ))}
         </select>
+      </div>
+
+      <div>
+        <div className="flex items-center gap-2 mb-2">
+          <span className="text-xs font-semibold uppercase tracking-widest text-gray-500">How should we reach you?</span>
+        </div>
+        <div className="grid grid-cols-2 gap-2 mb-3">
+          <button
+            type="button"
+            onClick={() => setContactMethod("phone")}
+            className="flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold transition-all"
+            style={{
+              background: contactMethod === "phone" ? "rgba(16,185,129,0.15)" : "#1a1a1a",
+              border: contactMethod === "phone" ? "1px solid #10B981" : "1px solid #333",
+              color: contactMethod === "phone" ? "#10B981" : "#9ca3af",
+            }}
+          >
+            <Phone size={15} /> Phone
+          </button>
+          <button
+            type="button"
+            onClick={() => setContactMethod("email")}
+            className="flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold transition-all"
+            style={{
+              background: contactMethod === "email" ? "rgba(16,185,129,0.15)" : "#1a1a1a",
+              border: contactMethod === "email" ? "1px solid #10B981" : "1px solid #333",
+              color: contactMethod === "email" ? "#10B981" : "#9ca3af",
+            }}
+          >
+            <Mail size={15} /> Email
+          </button>
+        </div>
+
+        {contactMethod === "phone" ? (
+          <input
+            type="tel"
+            placeholder="Phone Number"
+            required
+            value={form.phone}
+            onChange={(e) => setForm({ ...form, phone: e.target.value })}
+            className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 text-sm"
+            style={{ background: "#1a1a1a", border: "1px solid #333" }}
+          />
+        ) : (
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+            value={form.email}
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 text-sm"
+            style={{ background: "#1a1a1a", border: "1px solid #333" }}
+          />
+        )}
       </div>
 
       <textarea

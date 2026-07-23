@@ -9,6 +9,7 @@ interface HeroProps {
     primary?: { text: string; onClick?: () => void };
     secondary?: { text: string; onClick?: () => void };
   };
+  footnote?: React.ReactNode;
   className?: string;
 }
 
@@ -120,6 +121,7 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
   headline,
   subtitle,
   buttons,
+  footnote,
   className = "",
 }) => {
   const canvasRef = useShaderBackground();
@@ -204,6 +206,10 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
                 </button>
               )}
             </div>
+          )}
+
+          {footnote && (
+            <p className="mt-5 text-sm text-gray-300 hero-fade-up delay-800">{footnote}</p>
           )}
         </div>
       </div>

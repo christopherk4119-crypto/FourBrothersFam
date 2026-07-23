@@ -44,7 +44,28 @@ const faqs = [
     q: "Do you offer warranties on new roof installations?",
     a: "Yes. New installations are backed by both manufacturer material warranties and our own workmanship guarantee, so you're covered on the materials and the labor.",
   },
+  {
+    q: "I want to fully renew my roof — what's the process?",
+    a: "If your roof is outdated or beyond a reasonable repair, we completely remove the old roof — tearing it down and hauling away all the old materials — then install new, first-quality materials from the deck up, backed by a 10-year workmanship guarantee.",
+  },
 ];
+
+const learnMore = {
+  heading: "Roof Installation in Calgary, Done Right From the Deck Up",
+  paragraphs: [
+    "A new roof is one of the biggest investments you'll make in your home, and the difference between a roof that lasts 25 years and one that starts leaking in five almost always comes down to installation quality — not just the shingles you picked off a sample board. Our crews learned the trade on real Calgary roofs, working for established roofing companies before we started Four Brothers Exteriors, so every install follows the same sequence: full tear-off of the old roofing, a deck inspection to catch soft or rotten sheathing before it's covered up, ice-and-water shield in the valleys and eaves, synthetic underlayment across the field, then flashing, starter strip, shingles (or metal panels), and ridge cap installed to manufacturer spec.",
+    "Calgary roofs take a beating that a lot of other cities never see — heavy snow load in winter, hailstorms in summer, and constant freeze-thaw cycling that opens up any weak seam in a roofing system. That's why we default to impact-resistant asphalt shingles or standing-seam metal, both rated to hold up against our climate, and why we never skip the ice-and-water membrane at eaves and valleys even when it adds a step. For new construction and commercial projects, we work directly with builders and contractors to stay on schedule and pull the permits the City of Calgary requires, so you're not left chasing paperwork.",
+    "Every installation — residential or commercial — is backed by a 10-year workmanship guarantee on top of the manufacturer's material warranty. That means if something isn't right because of how it was installed, we come back and fix it. No hidden fees, no upsells once the crew is already on your roof — the quote we give you before we start is the price you pay.",
+  ],
+  highlights: [
+    "Full tear-off with deck inspection and repair",
+    "Ice-and-water shield at eaves and valleys",
+    "Asphalt shingle and metal roofing options",
+    "Permits handled for you",
+    "10-year workmanship guarantee",
+    "Free, no-obligation quotes",
+  ],
+};
 
 export default function RoofInstallationPage() {
   return (
@@ -56,6 +77,7 @@ export default function RoofInstallationPage() {
         serviceType="Roof Installation"
         services={services}
         galleryPhotos={[]}
+        learnMore={learnMore}
       />
       <FAQSection faqs={faqs} heading="Roof Installation FAQ" subheading="What Calgary homeowners ask before a new roof install." />
     </>

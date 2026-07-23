@@ -1,15 +1,17 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, Home, Wrench, Mail } from "lucide-react";
+import RoofIcon from "@/components/ui/roof-icon";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL } from "@/lib/config";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/#services", label: "Services" },
   { href: "/#gallery", label: "Projects" },
   { href: "/#about", label: "About" },
+  { href: "/faq", label: "FAQ" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -31,11 +33,13 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2 min-w-[180px]">
-            <Image src="/logo.png" alt="Four Brothers Exteriors logo" width={48} height={48} className="rounded-lg" priority />
+          <Link href="/" className="flex items-center gap-2.5 min-w-[180px]">
+            <RoofIcon size={42} />
             <div>
-              <div className="font-black text-lg leading-tight" style={{ color: "#10B981" }}>Four Brothers</div>
-              <div className="text-xs text-gray-400 leading-tight">Exteriors</div>
+              <div className="display-font font-bold text-xl leading-tight tracking-wide uppercase" style={{ color: "#10B981" }}>
+                Four Brothers
+              </div>
+              <div className="text-[11px] text-gray-400 leading-tight tracking-[0.2em] uppercase">Exteriors</div>
             </div>
           </Link>
 
@@ -55,10 +59,15 @@ export default function Navbar() {
 
           {/* Right Side */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="tel:5878919200" className="flex items-center gap-2 text-white font-bold text-sm">
-              <Phone size={16} style={{ color: "#10B981" }} />
-              (587) 891-9200
-            </a>
+            <div className="flex flex-col leading-tight text-right">
+              <a href={`tel:${PRIMARY_PHONE_TEL}`} className="flex items-center gap-2 text-white font-bold text-sm">
+                <Phone size={16} style={{ color: "#10B981" }} />
+                {PRIMARY_PHONE_DISPLAY}
+              </a>
+              <span className="text-[11px] text-gray-500">
+                or call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+              </span>
+            </div>
             <Link
               href="/#contact"
               className="px-5 py-2 rounded-full font-bold text-sm text-black transition-all duration-200 hover:scale-105"
@@ -84,7 +93,7 @@ export default function Navbar() {
             <Wrench size={18} />
             <span className="text-[11px] font-bold uppercase tracking-wide">Services</span>
           </Link>
-          <a href="tel:5878919200" className="flex flex-col items-center gap-0.5 px-4 pt-2 text-gray-200">
+          <a href={`tel:${PRIMARY_PHONE_TEL}`} className="flex flex-col items-center gap-0.5 px-4 pt-2 text-gray-200">
             <Phone size={18} />
             <span className="text-[11px] font-bold uppercase tracking-wide">Call</span>
           </a>
@@ -111,10 +120,13 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="pt-4 border-t border-gray-800 space-y-3">
-              <a href="tel:5878919200" className="flex items-center gap-2 text-white font-bold">
+              <a href={`tel:${PRIMARY_PHONE_TEL}`} className="flex items-center gap-2 text-white font-bold">
                 <Phone size={16} style={{ color: "#10B981" }} />
-                (587) 891-9200
+                {PRIMARY_PHONE_DISPLAY}
               </a>
+              <p className="text-xs text-gray-500">
+                or call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+              </p>
               <Link
                 href="/#contact"
                 onClick={() => setOpen(false)}

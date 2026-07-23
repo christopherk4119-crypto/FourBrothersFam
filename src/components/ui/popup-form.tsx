@@ -1,13 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { X, AlertCircle } from "lucide-react";
+import { X, AlertCircle, Phone, Mail } from "lucide-react";
 import { PRIMARY_PHONE_DISPLAY, SERVICE_TYPES } from "@/lib/config";
+
+type ContactMethod = "phone" | "email";
 
 export default function PopupForm() {
   const [visible, setVisible] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
+  const [contactMethod, setContactMethod] = useState<ContactMethod>("phone");
   const [form, setForm] = useState({ name: "", phone: "", email: "", service: "", message: "" });
 
   useEffect(() => {
@@ -30,7 +33,7 @@ export default function PopupForm() {
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...form, message: `[Popup Form] ${form.message}` }),
+      body: JSON.stringify({ ...form, contactMethod, message: `[Popup Form] ${form.message}` }),
     });
 
     setSending(false);
@@ -71,30 +74,72 @@ export default function PopupForm() {
           <div className="text-center py-8">
             <div className="text-5xl mb-4">✅</div>
             <h3 className="text-2xl font-black text-white mb-2">You&apos;re All Set!</h3>
-            <p className="text-gray-300">Thank you! We&apos;ll call you back shortly at <span style={{ color: "#10B981" }}>{PRIMARY_PHONE_DISPLAY}</span>.</p>
+            <p className="text-gray-300">Thank you! We&apos;ll be in touch shortly. In a hurry? Call <span style={{ color: "#10B981" }}>{PRIMARY_PHONE_DISPLAY}</span>.</p>
           </div>
         ) : (
           <>
             <h3 className="text-2xl font-black text-white mb-1">Get a Free Quote</h3>
-            <p className="text-gray-400 text-sm mb-6">We&apos;ll call you back shortly.</p>
+            <p className="text-gray-400 text-sm mb-6">We&apos;ll be in touch shortly.</p>
 
             <form onSubmit={handleSubmit} className="space-y-3">
-              {[
-                { name: "name", placeholder: "Your Name", type: "text" },
-                { name: "phone", placeholder: "Phone Number", type: "tel" },
-                { name: "email", placeholder: "Email Address", type: "email" },
-              ].map((f) => (
+              <input
+                type="text"
+                placeholder="Your Name"
+                required
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 text-sm outline-none focus:ring-2"
+                style={{ background: "#1a1a1a", border: "1px solid #333" }}
+              />
+
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setContactMethod("phone")}
+                  className="flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all"
+                  style={{
+                    background: contactMethod === "phone" ? "rgba(16,185,129,0.15)" : "#1a1a1a",
+                    border: contactMethod === "phone" ? "1px solid #10B981" : "1px solid #333",
+                    color: contactMethod === "phone" ? "#10B981" : "#9ca3af",
+                  }}
+                >
+                  <Phone size={14} /> Phone
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setContactMethod("email")}
+                  className="flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all"
+                  style={{
+                    background: contactMethod === "email" ? "rgba(16,185,129,0.15)" : "#1a1a1a",
+                    border: contactMethod === "email" ? "1px solid #10B981" : "1px solid #333",
+                    color: contactMethod === "email" ? "#10B981" : "#9ca3af",
+                  }}
+                >
+                  <Mail size={14} /> Email
+                </button>
+              </div>
+
+              {contactMethod === "phone" ? (
                 <input
-                  key={f.name}
-                  type={f.type}
-                  placeholder={f.placeholder}
+                  type="tel"
+                  placeholder="Phone Number"
                   required
-                  value={form[f.name as keyof typeof form]}
-                  onChange={(e) => setForm({ ...form, [f.name]: e.target.value })}
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 text-sm outline-none focus:ring-2"
                   style={{ background: "#1a1a1a", border: "1px solid #333" }}
                 />
-              ))}
+              ) : (
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 text-sm outline-none focus:ring-2"
+                  style={{ background: "#1a1a1a", border: "1px solid #333" }}
+                />
+              )}
 
               <select
                 required

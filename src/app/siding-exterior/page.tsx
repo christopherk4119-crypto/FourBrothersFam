@@ -44,7 +44,28 @@ const faqs = [
     q: "How much does siding cost in Calgary?",
     a: "Cost depends on the size of your home, material choice, and the condition of the existing exterior. We provide a clear, itemized, no-obligation quote before any work begins.",
   },
+  {
+    q: "I want to renew my roof covering — what should I know?",
+    a: "No matter which roofing or siding material you switch to, the quality of the installation is what actually determines whether it holds up. Even first-quality materials will fail early if the workmanship is wrong — that's why we focus as much on how it's installed as what it's made of.",
+  },
 ];
+
+const learnMore = {
+  heading: "Siding & Exterior Upgrades That Protect the Whole House",
+  paragraphs: [
+    "Siding does more than change the look of your home — it's the first line of defense against Calgary's wind, hail, and moisture. We install vinyl siding for homeowners who want a durable, low-maintenance option in a wide range of colors, and fiber cement (Hardie board) for those who want a premium, fire-resistant finish that holds up longer and adds real resale value. Either way, the material is only half the equation: proper house wrap, flashing around windows and doors, and correct fastening spacing are what actually keep water out. We don't cut corners on the parts you can't see once the siding is up.",
+    "Fascia, soffit, and eavestrough are part of the same system as your roof and siding, even though they're often sold as separate jobs by other contractors. Damaged or rotting fascia and soffit are one of the most common entry points for pests and moisture into your attic, and worn gutters that overflow or pull away from the house send water straight down your siding and into your foundation. We look at the whole exterior envelope together, so a siding job doesn't leave a gap in your roofline unaddressed.",
+    "For repairs or partial replacements, we do our best to match your existing siding color and profile so new sections blend in. For full exterior upgrades or storm damage restoration, we'll walk you through options that fit both your home's style and your budget — and give you a clear, itemized quote before any work begins.",
+  ],
+  highlights: [
+    "Vinyl and Hardie fiber cement siding",
+    "Proper house wrap and flashing, not just panels",
+    "Fascia, soffit & eavestrough included",
+    "Color and profile matching for repairs",
+    "Storm damage restoration",
+    "Free, no-obligation quotes",
+  ],
+};
 
 export default function SidingExteriorPage() {
   return (
@@ -56,6 +77,7 @@ export default function SidingExteriorPage() {
         serviceType="Siding & Exterior"
         services={services}
         galleryPhotos={[]}
+        learnMore={learnMore}
       />
       <FAQSection faqs={faqs} heading="Siding & Exterior FAQ" subheading="What Calgary homeowners ask about siding and exterior upgrades." />
     </>

@@ -1,11 +1,20 @@
 import type { Metadata } from "next";
 import FAQSection from "@/components/ui/faq-section";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "FAQ | Calgary Roofing & Exterior Questions Answered",
   description:
-    "Answers to common questions about roof repair, roof installation, and siding in Calgary. Pricing, permits, timelines, and more. Four Brothers Exteriors — (587) 891-9200.",
+    "Answers to common questions about roof repair, roof installation, and siding in Calgary. Pricing, permits, timelines, gutter repair, roof winterizing, and more. Four Brothers Exteriors — (587) 891-9200.",
+  keywords: [
+    "roofing FAQ Calgary",
+    "is my roof leaking Calgary",
+    "rain gutter repair Calgary",
+    "roof winterizing Calgary",
+    "roof recover Calgary",
+    "roof replacement cost Calgary",
+    "emergency roof repair Calgary",
+  ],
   alternates: { canonical: "https://www.fourbrothersexteriors.com/faq" },
   openGraph: {
     title: "FAQ | Four Brothers Exteriors Calgary",
@@ -75,6 +84,27 @@ const faqs = [
     q: "What's the best siding material for Calgary's climate?",
     a: "Vinyl siding is a popular, cost-effective choice that handles temperature swings well, while fiber cement (Hardie board) offers superior durability and a premium look at a higher price point. We'll walk you through the trade-offs based on your budget.",
   },
+  // Maintenance & renewal
+  {
+    q: "Is my roof leaking water?",
+    a: "If your roof uses tile and the tiles have reached the end of their service life, the roof usually needs a full recover rather than a spot patch. Part of doing that right is installing proper water-resistant underlayment beneath the tiles during the re-cover, so your roof stays protected against leaks for years, not just months.",
+  },
+  {
+    q: "Are my rain gutters worn?",
+    a: "Sagging, pulling-away, cracked, or overflowing gutters put your roofline and foundation at risk. Call us to inspect and renew worn rain gutters on your roof before they cause water damage to your fascia, siding, or basement.",
+  },
+  {
+    q: "I want to renew my roof covering — what should I know?",
+    a: "No matter which roofing material you switch to, the quality of the installation is what actually determines whether your roof holds up. Even first-quality materials will leak if the workmanship is wrong — that's why we focus as much on how a roof is installed as what it's made of.",
+  },
+  {
+    q: "I want to have my roof winterized — how do I start?",
+    a: "Reach out through our contact form or call us directly to schedule roof maintenance and repair work before winter hits, so your roof, gutters, and flashing are ready for Calgary's snow load and freeze-thaw cycles.",
+  },
+  {
+    q: "I want to fully renew my roof — what's the process?",
+    a: "If your roof is outdated or beyond a reasonable repair, we completely remove the old roof — tearing it down and hauling away all the old materials — then install new, first-quality materials from the deck up, backed by a 10-year workmanship guarantee.",
+  },
 ];
 
 export default function FAQPage() {
@@ -94,7 +124,7 @@ export default function FAQPage() {
             style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.25)", color: "#10B981" }}>
             🏠 Quick Answers
           </div>
-          <h1 className="text-5xl md:text-6xl font-black text-white mb-4 leading-tight" style={{ letterSpacing: "-0.02em" }}>
+          <h1 className="text-5xl md:text-6xl font-black text-white mb-4 leading-tight" style={{ letterSpacing: "0.01em" }}>
             Roofing &amp; Exterior <span style={{ color: "#10B981" }}>FAQs</span>
           </h1>
           <p className="text-gray-400 text-xl">Everything Calgary homeowners ask about roof repair, installation &amp; siding.</p>
@@ -111,6 +141,9 @@ export default function FAQPage() {
           <a href={`tel:${PRIMARY_PHONE_TEL}`} className="btn-gold inline-block px-10 py-4 text-lg font-black">
             Call {PRIMARY_PHONE_DISPLAY}
           </a>
+          <p className="text-gray-500 text-sm mt-4">
+            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+          </p>
         </div>
       </section>
     </>

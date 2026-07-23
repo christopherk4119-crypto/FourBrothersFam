@@ -7,7 +7,7 @@ import {
   Phone, Mail, Home as HomeIcon, HardHat, PanelsTopLeft, ShieldCheck,
   Camera, MapPin,
 } from "lucide-react";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, CONTACT_EMAIL } from "@/lib/config";
 
 const services = [
   {
@@ -103,6 +103,7 @@ export default function HomePage() {
           primary: { text: "Get a Free Quote", onClick: () => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" }) },
           secondary: { text: `Call Now: ${PRIMARY_PHONE_DISPLAY}`, onClick: () => { window.location.href = `tel:${PRIMARY_PHONE_TEL}`; } },
         }}
+        footnote={<>No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="underline hover:text-emerald-300">{SECONDARY_PHONE_DISPLAY}</a></>}
       />
 
       {/* SEO: visually hidden h1 and NAP */}
@@ -142,9 +143,14 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-xl font-black text-white mb-3">{s.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1">{s.desc}</p>
-                  <Link href={s.href} className="btn-gold inline-block text-center px-6 py-3 text-sm font-black">
-                    Get Quote
-                  </Link>
+                  <div className="flex items-center gap-4">
+                    <Link href={s.href} className="btn-gold inline-block text-center px-6 py-3 text-sm font-black">
+                      Get Quote
+                    </Link>
+                    <Link href={s.href} className="text-sm font-bold hover:underline" style={{ color: "#10B981" }}>
+                      Learn More →
+                    </Link>
+                  </div>
                 </div>
               </FadeIn>
             ))}
@@ -213,6 +219,9 @@ export default function HomePage() {
                   style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}>
                   Call Us Now
                 </a>
+                <p className="text-gray-500 text-xs mt-3">
+                  No answer? Call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+                </p>
               </div>
             </FadeIn>
             <FadeIn delay={150}>
@@ -324,7 +333,7 @@ export default function HomePage() {
                     <span className="text-gray-400 text-sm uppercase tracking-widest font-semibold">Call Us</span>
                   </div>
                   <a href={`tel:${PRIMARY_PHONE_TEL}`} className="text-3xl font-black text-white hover:text-emerald-400 transition-colors block">{PRIMARY_PHONE_DISPLAY}</a>
-                  <p className="text-gray-500 text-xs mt-1">Or reach the other brother direct: <a href="tel:5143481366" className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a></p>
+                  <p className="text-gray-500 text-xs mt-1">No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a></p>
                 </div>
                 <div className="p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.1)" }}>
                   <div className="flex items-center gap-4 mb-2">

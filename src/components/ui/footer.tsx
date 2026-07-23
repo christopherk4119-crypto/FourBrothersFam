@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { PRIMARY_PHONE_TEL, PRIMARY_PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/config";
+import RoofIcon from "@/components/ui/roof-icon";
+import { PRIMARY_PHONE_TEL, PRIMARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -11,10 +11,10 @@ export default function Footer() {
           {/* Logo + tagline */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" alt="Four Brothers Exteriors logo" width={44} height={44} className="rounded-lg" />
+              <RoofIcon size={40} />
               <div>
-                <div className="font-black text-lg" style={{ color: "#10B981" }}>Four Brothers</div>
-                <div className="text-xs text-gray-500">Exteriors</div>
+                <div className="display-font font-bold text-lg tracking-wide uppercase" style={{ color: "#10B981" }}>Four Brothers</div>
+                <div className="text-[11px] text-gray-500 tracking-[0.2em] uppercase">Exteriors</div>
               </div>
             </div>
             <p className="text-gray-400 text-sm italic mb-4">&quot;Calgary&apos;s Trusted Roofing &amp; Exterior Experts&quot;</p>
@@ -47,7 +47,10 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-widest">Contact Us</h4>
             <div className="space-y-2">
               <a href={`tel:${PRIMARY_PHONE_TEL}`} className="block font-bold text-emerald-400 hover:text-emerald-300">{PRIMARY_PHONE_DISPLAY}</a>
-              <a href={`mailto:${CONTACT_EMAIL}`} className="block text-gray-400 hover:text-white text-sm">{CONTACT_EMAIL}</a>
+              <p className="text-gray-500 text-xs">
+                or call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+              </p>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="block text-gray-400 hover:text-white text-sm pt-1">{CONTACT_EMAIL}</a>
               <p className="text-gray-500 text-sm pt-2">Serving Calgary, AB &amp; surrounding areas</p>
             </div>
           </div>
