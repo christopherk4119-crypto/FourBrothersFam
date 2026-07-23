@@ -65,6 +65,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "What makes a roofing material durable in Calgary's climate? Here's what to look for before your next install or replacement.",
     date: "2026-01-19",
+    thumbnail: { src: "/images/gallery/roofing/calgary-roof-ridge-cap-shingle-installation-1.webp", alt: "Close-up of ridge cap shingle installation on a Calgary roof" },
     content: [
       {
         type: "p",
@@ -75,7 +76,12 @@ export const blogPosts: BlogPost[] = [
         type: "p",
         text: "Quality roofing materials are manufactured to resist the freeze-thaw cycles that are so common in Alberta. Materials that expand and contract too much with temperature changes are more prone to cracking, warping, and premature failure. That's why we recommend materials specifically rated for extreme climate variation when installing or replacing roofs on Calgary homes.",
       },
-      { type: "image", caption: "Roof material detail in changing Calgary weather" },
+      {
+        type: "image",
+        src: "/images/gallery/roofing/calgary-roof-ridge-cap-shingle-installation-1.webp",
+        alt: "Close-up of ridge cap shingle installation showing weather-resistant roofing detail on a Calgary home",
+        caption: "Ridge cap detail — built to hold up against Calgary's freeze-thaw cycles",
+      },
       { type: "h2", text: "Temperature Regulation" },
       {
         type: "p",
