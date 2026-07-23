@@ -16,9 +16,15 @@ const navLinks = [
   { href: "/#contact", label: "Contact" },
 ];
 
+// Must match the actual top-to-bottom order of sections in src/app/page.tsx —
+// the scroll-spy below picks the last id whose top has passed the reference
+// line, so this array's order has to mirror the DOM, not the nav's order.
+const SECTION_IDS = ["services", "about", "gallery", "contact"];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -26,6 +32,52 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Scroll-spy for the homepage's in-page anchor sections (Services,
+  // Projects, About, Contact) — pathname alone can't tell us which one
+  // is in view since they're all hash links on "/". Driven directly off
+  // scroll position (which section's top has most recently passed the
+  // reference line just below the sticky nav) rather than
+  // IntersectionObserver, whose narrow trigger band can miss a section
+  // that crosses it between notification batches during fast scrolling.
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const REFERENCE_LINE = 160;
+    let ticking = false;
+
+    const measure = () => {
+      ticking = false;
+      if (window.scrollY < 200) {
+        setActiveSection(null);
+        return;
+      }
+      let current: string | null = null;
+      for (const id of SECTION_IDS) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= REFERENCE_LINE) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
+    };
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(measure);
+    };
+
+    measure();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [pathname]);
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/" && !activeSection;
+    if (href.startsWith("/#")) return pathname === "/" && activeSection === href.slice(2);
+    return pathname === href;
+  };
 
   return (
     <nav
@@ -51,7 +103,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 className="font-semibold text-sm uppercase tracking-wide transition-colors duration-200"
-                style={{ color: pathname === l.href ? "#D4AF37" : "#e5e7eb" }}
+                style={{ color: isActive(l.href) ? "#D4AF37" : "#e5e7eb" }}
               >
                 {l.label}
               </Link>
@@ -87,7 +139,7 @@ export default function Navbar() {
 
         {/* Mobile quick-access bar */}
         <div className="md:hidden flex items-center justify-around pb-2" style={{ borderTop: "1px solid rgba(212,175,55,0.12)" }}>
-          <Link href="/" className="flex flex-col items-center gap-0.5 px-4 pt-2" style={{ color: pathname === "/" ? "#D4AF37" : "#e5e7eb" }}>
+          <Link href="/" className="flex flex-col items-center gap-0.5 px-4 pt-2" style={{ color: isActive("/") ? "#D4AF37" : "#e5e7eb" }}>
             <Home size={18} />
             <span className="text-[11px] font-bold uppercase tracking-wide">Home</span>
           </Link>
@@ -116,7 +168,7 @@ export default function Navbar() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="block font-bold text-lg py-2"
-                style={{ color: pathname === l.href ? "#D4AF37" : "#e5e7eb" }}
+                style={{ color: isActive(l.href) ? "#D4AF37" : "#e5e7eb" }}
               >
                 {l.label}
               </Link>
