@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Image as ImageIcon, Calendar } from "lucide-react";
+import { Image as ImageIcon, Calendar, DollarSign } from "lucide-react";
 import { BlogPost, getRelatedPosts } from "@/lib/blog-posts";
 
 function ImagePlaceholder({ caption }: { caption: string }) {
@@ -60,6 +60,21 @@ export default function BlogPostLayout({ post }: { post: BlogPost }) {
               className="absolute inset-0"
               style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.92) 100%)" }}
             />
+            {post.heroBadge === "dollar" && (
+              <div
+                className="absolute z-10 flex items-center justify-center rounded-full"
+                style={{
+                  top: 24,
+                  right: 24,
+                  width: 92,
+                  height: 92,
+                  background: "linear-gradient(135deg, #D4AF37, #9B7A22)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+                }}
+              >
+                <DollarSign size={52} strokeWidth={2.5} color="#0a0a0a" />
+              </div>
+            )}
           </>
         ) : (
           <>

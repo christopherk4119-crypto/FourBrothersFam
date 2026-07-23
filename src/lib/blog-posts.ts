@@ -12,6 +12,7 @@ export interface BlogPost {
   excerpt: string;
   date: string;
   heroImage?: { src: string; alt: string };
+  heroBadge?: "dollar";
   thumbnail?: { src: string; alt: string };
   content: BlogBlock[];
   related: string[];
@@ -158,6 +159,9 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Wondering what a roof replacement actually costs in Calgary? Here's an honest breakdown of what drives the price.",
     date: "2026-02-02",
+    heroImage: { src: "/images/gallery/roofing/calgary-roof-installation-aerial-view-sunset-1.webp", alt: "Aerial view of a completed roof replacement on a Calgary home at sunset" },
+    heroBadge: "dollar",
+    thumbnail: { src: "/images/gallery/roofing/calgary-roof-installation-aerial-view-sunset-1.webp", alt: "Aerial view of a completed roof replacement on a Calgary home at sunset" },
     content: [
       {
         type: "p",
@@ -174,7 +178,12 @@ export const blogPosts: BlogPost[] = [
           "Accessibility — roofs that are harder to access may require additional labor",
         ],
       },
-      { type: "image", caption: "Roof replacement project on a Calgary home" },
+      {
+        type: "image",
+        caption: "A finished roof replacement project on a Calgary home",
+        src: "/images/gallery/roofing/calgary-roof-installation-aerial-view-sunset-1.webp",
+        alt: "Aerial view of a completed roof replacement on a Calgary home at sunset",
+      },
       { type: "h2", text: "Why Free Quotes Matter" },
       {
         type: "p",
