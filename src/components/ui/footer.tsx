@@ -47,9 +47,7 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-widest">Contact Us</h4>
             <div className="space-y-2">
               <a href={`tel:${PRIMARY_PHONE_TEL}`} className="block font-bold text-emerald-400 hover:text-emerald-300">{PRIMARY_PHONE_DISPLAY}</a>
-              <p className="text-gray-500 text-xs">
-                or call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
-              </p>
+              <a href={`tel:${SECONDARY_PHONE_TEL}`} className="block font-bold" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY} <span className="text-gray-500 font-normal text-xs">(2nd line)</span></a>
               <a href={`mailto:${CONTACT_EMAIL}`} className="block text-gray-400 hover:text-white text-sm pt-1">{CONTACT_EMAIL}</a>
               <p className="text-gray-500 text-sm pt-2">Serving Calgary, AB &amp; surrounding areas</p>
             </div>

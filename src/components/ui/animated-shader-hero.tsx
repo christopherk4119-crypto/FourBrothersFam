@@ -209,7 +209,7 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
           )}
 
           {footnote && (
-            <p className="mt-5 text-sm text-gray-300 hero-fade-up delay-800">{footnote}</p>
+            <p className="mt-5 text-base text-gray-200 hero-fade-up delay-800">{footnote}</p>
           )}
         </div>
       </div>

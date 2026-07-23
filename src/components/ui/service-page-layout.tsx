@@ -83,8 +83,8 @@ export default function ServicePageLayout({
               Call {PRIMARY_PHONE_DISPLAY}
             </a>
           </div>
-          <p className="text-gray-500 text-sm mt-5">
-            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+          <p className="text-gray-300 text-base mt-5">
+            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY}</a>
           </p>
           <div className="flex flex-wrap justify-center gap-8 mt-10">
             {["Honest, Upfront Pricing", "Workmanship Guarantee", "Fast Response"].map((t) => (

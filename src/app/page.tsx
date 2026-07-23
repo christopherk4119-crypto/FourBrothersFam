@@ -103,7 +103,7 @@ export default function HomePage() {
           primary: { text: "Get a Free Quote", onClick: () => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" }) },
           secondary: { text: `Call Now: ${PRIMARY_PHONE_DISPLAY}`, onClick: () => { window.location.href = `tel:${PRIMARY_PHONE_TEL}`; } },
         }}
-        footnote={<>No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="underline hover:text-emerald-300">{SECONDARY_PHONE_DISPLAY}</a></>}
+        footnote={<>No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold text-base" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY}</a></>}
       />
 
       {/* SEO: visually hidden h1 and NAP */}
@@ -219,8 +219,8 @@ export default function HomePage() {
                   style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}>
                   Call Us Now
                 </a>
-                <p className="text-gray-500 text-xs mt-3">
-                  No answer? Call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+                <p className="text-gray-400 text-sm mt-3">
+                  No answer? Call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY}</a>
                 </p>
               </div>
             </FadeIn>
@@ -333,7 +333,8 @@ export default function HomePage() {
                     <span className="text-gray-400 text-sm uppercase tracking-widest font-semibold">Call Us</span>
                   </div>
                   <a href={`tel:${PRIMARY_PHONE_TEL}`} className="text-3xl font-black text-white hover:text-emerald-400 transition-colors block">{PRIMARY_PHONE_DISPLAY}</a>
-                  <p className="text-gray-500 text-xs mt-1">No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a></p>
+                  <p className="text-gray-500 text-xs mt-2 mb-1">No answer? Call our other line:</p>
+                  <a href={`tel:${SECONDARY_PHONE_TEL}`} className="text-2xl font-black transition-colors block hover:brightness-110" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY}</a>
                 </div>
                 <div className="p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.1)" }}>
                   <div className="flex items-center gap-4 mb-2">

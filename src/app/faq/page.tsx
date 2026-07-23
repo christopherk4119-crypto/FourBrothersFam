@@ -141,8 +141,8 @@ export default function FAQPage() {
           <a href={`tel:${PRIMARY_PHONE_TEL}`} className="btn-gold inline-block px-10 py-4 text-lg font-black">
             Call {PRIMARY_PHONE_DISPLAY}
           </a>
-          <p className="text-gray-500 text-sm mt-4">
-            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+          <p className="text-gray-300 text-base mt-4">
+            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY}</a>
           </p>
         </div>
       </section>

@@ -64,8 +64,8 @@ export default function Navbar() {
                 <Phone size={16} style={{ color: "#10B981" }} />
                 {PRIMARY_PHONE_DISPLAY}
               </a>
-              <span className="text-[11px] text-gray-500">
-                or call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
+              <span className="text-xs text-gray-400">
+                or call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY}</a>
               </span>
             </div>
             <Link
@@ -124,9 +124,10 @@ export default function Navbar() {
                 <Phone size={16} style={{ color: "#10B981" }} />
                 {PRIMARY_PHONE_DISPLAY}
               </a>
-              <p className="text-xs text-gray-500">
-                or call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a>
-              </p>
+              <a href={`tel:${SECONDARY_PHONE_TEL}`} className="flex items-center gap-2 font-bold" style={{ color: "#D4AF37" }}>
+                <Phone size={16} style={{ color: "#D4AF37" }} />
+                {SECONDARY_PHONE_DISPLAY} <span className="text-gray-500 font-normal text-sm">(2nd line)</span>
+              </a>
               <Link
                 href="/#contact"
                 onClick={() => setOpen(false)}
