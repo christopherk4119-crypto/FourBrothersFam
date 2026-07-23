@@ -83,7 +83,10 @@ export default function RoofInstallationPage() {
         heroCta="Get Installation Quote"
         serviceType="Roof Installation"
         services={services}
-        galleryPhotos={[]}
+        galleryPhotos={[
+          { src: "/images/gallery/roofing/calgary-roof-peak-vent-shingle-installation-1.webp", alt: "New shingle roof peak and vent installation on a Calgary home" },
+          { src: "/images/gallery/roofing/calgary-roof-ridge-cap-shingle-installation-1.webp", alt: "Ridge cap shingle installation on a Calgary roof" },
+        ]}
         learnMore={learnMore}
       />
       <FAQSection faqs={faqs} heading="Roof Installation FAQ" subheading="What Calgary homeowners ask before a new roof install." />

@@ -1,13 +1,25 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedShaderHero from "@/components/ui/animated-shader-hero";
 import QuoteForm from "@/components/ui/quote-form";
+import Gallery from "@/components/ui/gallery";
 import {
   Phone, Mail, Home as HomeIcon, HardHat, PanelsTopLeft, ShieldCheck,
-  Camera, MapPin,
+  MapPin,
 } from "lucide-react";
 import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, CONTACT_EMAIL } from "@/lib/config";
+
+const homeGallery = [
+  { src: "/images/gallery/roofing/calgary-roof-installation-aerial-view-sunset-1.webp", alt: "Aerial sunset view of a completed shingle roof installation in Calgary" },
+  { src: "/images/gallery/roofing/calgary-roofing-aerial-shingle-inspection-1.webp", alt: "Aerial shingle roof inspection over a Calgary neighborhood" },
+  { src: "/images/gallery/roofing/calgary-roof-peak-vent-shingle-installation-1.webp", alt: "New shingle roof peak and vent installation on a Calgary home" },
+  { src: "/images/gallery/roofing/calgary-roof-ridge-cap-shingle-installation-1.webp", alt: "Ridge cap shingle installation on a Calgary roof" },
+  { src: "/images/gallery/roofing/calgary-roof-pipe-boot-flashing-repair-1.webp", alt: "Pipe boot flashing repair on a Calgary shingle roof" },
+  { src: "/images/gallery/roofing/calgary-roofer-shingle-installation-workmanship-1.webp", alt: "Four Brothers Exteriors roofer walking a freshly shingled Calgary roof" },
+  { src: "/images/gallery/roofing/calgary-roof-vent-flashing-installation-1.webp", alt: "Roof vent flashing installation on a Calgary shingle roof" },
+];
 
 const services = [
   {
@@ -225,9 +237,15 @@ export default function HomePage() {
               </div>
             </FadeIn>
             <FadeIn delay={150}>
-              <div className="relative rounded-2xl overflow-hidden flex items-center justify-center" style={{ minHeight: 420, background: "linear-gradient(155deg, #1a1a1a, #0a0a0a)", border: "2px solid rgba(212,175,55,0.15)" }}>
-                <HardHat size={96} style={{ color: "rgba(212,175,55,0.25)" }} />
-                <span className="absolute bottom-6 text-gray-500 text-sm">Project photos coming soon</span>
+              <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 420, border: "2px solid rgba(212,175,55,0.15)" }}>
+                <Image
+                  src="/images/gallery/roofing/calgary-roof-installation-aerial-view-sunset-1.webp"
+                  alt="Aerial sunset view of a Calgary home roof serviced by Four Brothers Exteriors"
+                  width={700}
+                  height={900}
+                  className="w-full h-full object-cover"
+                  style={{ minHeight: 420 }}
+                />
               </div>
             </FadeIn>
           </div>
@@ -279,16 +297,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeIn>
             <h2 className="section-heading">Our <span>Work</span></h2>
-            <p className="section-subheading">Real before/after project photos are on their way — check back soon.</p>
+            <p className="section-subheading">Real jobs, real roofs — Calgary homes we&apos;ve worked on.</p>
           </FadeIn>
           <FadeIn delay={100}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="aspect-square rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(155deg, #161616, #0a0a0a)", border: "1px solid rgba(212,175,55,0.1)" }}>
-                  <Camera size={28} style={{ color: "rgba(212,175,55,0.2)" }} />
-                </div>
-              ))}
-            </div>
+            <Gallery photos={homeGallery} columns={4} />
           </FadeIn>
         </div>
       </section>

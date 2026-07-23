@@ -87,7 +87,10 @@ export default function RoofRepairPage() {
         heroCta="Get Repair Quote"
         serviceType="Roof Repair"
         services={services}
-        galleryPhotos={[]}
+        galleryPhotos={[
+          { src: "/images/gallery/roofing/calgary-roof-pipe-boot-flashing-repair-1.webp", alt: "Pipe boot flashing repair on a Calgary shingle roof" },
+          { src: "/images/gallery/roofing/calgary-roofer-shingle-installation-workmanship-1.webp", alt: "Four Brothers Exteriors roofer working on a Calgary roof repair" },
+        ]}
         learnMore={learnMore}
       />
       <FAQSection faqs={faqs} heading="Roof Repair FAQ" subheading="What Calgary homeowners ask about roof repair and leaks." />

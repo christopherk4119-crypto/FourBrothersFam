@@ -83,7 +83,10 @@ export default function SidingExteriorPage() {
         heroCta="Get Siding Quote"
         serviceType="Siding & Exterior"
         services={services}
-        galleryPhotos={[]}
+        galleryPhotos={[
+          { src: "/images/gallery/roofing/calgary-roof-vent-flashing-installation-1.webp", alt: "Aerial view of a Calgary home exterior and roofline serviced by Four Brothers Exteriors" },
+          { src: "/images/gallery/roofing/calgary-roofing-aerial-shingle-inspection-1.webp", alt: "Aerial exterior view of a Calgary neighborhood surveyed by Four Brothers Exteriors" },
+        ]}
         learnMore={learnMore}
       />
       <FAQSection faqs={faqs} heading="Siding & Exterior FAQ" subheading="What Calgary homeowners ask about siding and exterior upgrades." />
