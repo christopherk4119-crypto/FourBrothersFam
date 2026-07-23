@@ -2,7 +2,7 @@ export type BlogBlock =
   | { type: "p"; text: string }
   | { type: "h2"; text: string }
   | { type: "list"; items: string[] }
-  | { type: "image"; caption: string }
+  | { type: "image"; caption: string; src?: string; alt?: string }
   | { type: "cta"; label: string };
 
 export interface BlogPost {
@@ -11,6 +11,8 @@ export interface BlogPost {
   metaDescription: string;
   excerpt: string;
   date: string;
+  heroImage?: { src: string; alt: string };
+  thumbnail?: { src: string; alt: string };
   content: BlogBlock[];
   related: string[];
 }
@@ -24,6 +26,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Comparing roofing materials for your Calgary home? Here's how asphalt shingles and metal roofing stack up against our weather.",
     date: "2026-01-12",
+    thumbnail: { src: "/images/blog/calgary-roofing-asphalt-shingle-roof-4.webp", alt: "Close-up of an asphalt shingle roof in Calgary" },
     content: [
       {
         type: "p",
@@ -34,7 +37,12 @@ export const blogPosts: BlogPost[] = [
         type: "p",
         text: "Asphalt shingles remain the most popular roofing choice for Calgary homeowners, and for good reason. Unlike rigid materials, shingles have a flexible structure that resists wind damage and won't crack or lift the way brittle materials can during Alberta's temperature swings. They're lightweight, which reduces stress on your home's structure, and they come in a wide range of colors and styles to match any home's aesthetic. With proper installation, asphalt shingles can last 20-25 years even in Calgary's climate.",
       },
-      { type: "image", caption: "Asphalt shingle roof installation" },
+      {
+        type: "image",
+        caption: "Asphalt shingle roof installation",
+        src: "/images/blog/calgary-roofing-asphalt-shingle-roof-4.webp",
+        alt: "Close-up of an asphalt shingle roof on a Calgary home",
+      },
       { type: "h2", text: "Metal Roofing" },
       {
         type: "p",
@@ -90,6 +98,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Not sure if your roof needs a repair or a full renovation? Here are the warning signs Calgary homeowners should watch for.",
     date: "2026-01-26",
+    thumbnail: { src: "/images/blog/calgary-roofing-shingle-installation-3.webp", alt: "Roofer installing new roofing material on a Calgary home" },
     content: [
       {
         type: "p",
@@ -109,7 +118,12 @@ export const blogPosts: BlogPost[] = [
           "Addressing any underlying issues with roof decking or ventilation",
         ],
       },
-      { type: "image", caption: "Roof renovation in progress on a Calgary home" },
+      {
+        type: "image",
+        caption: "Roof renovation in progress on a Calgary home",
+        src: "/images/blog/calgary-roofing-shingle-installation-3.webp",
+        alt: "Roofer installing new roofing material during a Calgary roof renovation",
+      },
       { type: "h2", text: "Signs You May Need a Roof Renovation" },
       {
         type: "list",
@@ -172,6 +186,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Even a single severe hailstorm can cause significant roof damage. Here's how to spot it before it turns into a leak.",
     date: "2026-02-09",
+    heroImage: { src: "/images/blog/calgary-roofing-hail-damage-shingle-closeup-1.webp", alt: "Close-up of hail damage bruising on a Calgary asphalt shingle roof" },
+    thumbnail: { src: "/images/blog/calgary-roofing-hail-impact-marks-circled-2.webp", alt: "Hail impact marks circled on a Calgary shingle roof" },
     content: [
       {
         type: "p",
@@ -187,7 +203,12 @@ export const blogPosts: BlogPost[] = [
           "Granules collecting in your downspouts or gutters after a storm",
         ],
       },
-      { type: "image", caption: "Hail damage inspection on a Calgary roof" },
+      {
+        type: "image",
+        caption: "Hail damage inspection on a Calgary roof",
+        src: "/images/blog/calgary-roofing-hail-impact-marks-circled-2.webp",
+        alt: "Hail impact marks circled during a roof inspection in Calgary",
+      },
       { type: "h2", text: "Why You Shouldn't Wait to Get an Inspection" },
       {
         type: "p",

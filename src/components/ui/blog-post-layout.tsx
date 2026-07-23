@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Image as ImageIcon, Calendar } from "lucide-react";
 import { BlogPost, getRelatedPosts } from "@/lib/blog-posts";
 
-function ImagePlaceholder({ caption, tall = false }: { caption: string; tall?: boolean }) {
+function ImagePlaceholder({ caption }: { caption: string }) {
   return (
     <div
       className="relative rounded-2xl overflow-hidden flex flex-col items-center justify-center gap-2 my-2"
       style={{
-        minHeight: tall ? 320 : 220,
+        minHeight: 220,
         background: "linear-gradient(155deg, #161616, #0a0a0a)",
         border: "1px solid rgba(212,175,55,0.15)",
       }}
@@ -20,28 +21,58 @@ function ImagePlaceholder({ caption, tall = false }: { caption: string; tall?: b
   );
 }
 
+function ContentImage({ src, alt, caption }: { src: string; alt: string; caption: string }) {
+  return (
+    <figure className="my-2">
+      <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 260, border: "1px solid rgba(212,175,55,0.2)" }}>
+        <Image src={src} alt={alt} width={900} height={600} className="w-full h-full object-cover" />
+      </div>
+      <figcaption className="text-gray-500 text-xs text-center mt-2">{caption}</figcaption>
+    </figure>
+  );
+}
+
 export default function BlogPostLayout({ post }: { post: BlogPost }) {
   const related = getRelatedPosts(post);
   const formattedDate = new Date(post.date).toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" });
 
   return (
     <>
-      {/* HERO — image/text overlay slot; swap the gradient below for a real bg photo later */}
+      {/* HERO — image/text overlay */}
       <section
         className="relative flex items-end overflow-hidden"
         style={{
           minHeight: "48vh",
-          background: "linear-gradient(160deg, #141414 0%, #0a0a0a 60%, #050f0c 100%)",
+          background: post.heroImage ? undefined : "linear-gradient(160deg, #141414 0%, #0a0a0a 60%, #050f0c 100%)",
         }}
       >
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,175,55,0.12) 0%, transparent 70%)" }}
-        />
-        <div className="absolute top-6 right-6 flex items-center gap-2 text-xs text-gray-600">
-          <ImageIcon size={14} />
-          <span>Featured image coming soon</span>
-        </div>
+        {post.heroImage ? (
+          <>
+            <Image
+              src={post.heroImage.src}
+              alt={post.heroImage.alt}
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+            <div
+              className="absolute inset-0"
+              style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.92) 100%)" }}
+            />
+          </>
+        ) : (
+          <>
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,175,55,0.12) 0%, transparent 70%)" }}
+            />
+            <div className="absolute top-6 right-6 flex items-center gap-2 text-xs text-gray-600">
+              <ImageIcon size={14} />
+              <span>Featured image coming soon</span>
+            </div>
+          </>
+        )}
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 pt-32 w-full">
           <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
             <Calendar size={14} />
@@ -78,7 +109,11 @@ export default function BlogPostLayout({ post }: { post: BlogPost }) {
                 );
               }
               if (block.type === "image") {
-                return <ImagePlaceholder key={i} caption={block.caption} />;
+                return block.src ? (
+                  <ContentImage key={i} src={block.src} alt={block.alt ?? block.caption} caption={block.caption} />
+                ) : (
+                  <ImagePlaceholder key={i} caption={block.caption} />
+                );
               }
               if (block.type === "cta") {
                 return (

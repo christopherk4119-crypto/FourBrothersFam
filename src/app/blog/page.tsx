@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Image as ImageIcon, Calendar } from "lucide-react";
 import { blogPosts } from "@/lib/blog-posts";
 
@@ -63,12 +64,21 @@ export default function BlogIndexPage() {
                 className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-200 hover:scale-[1.02]"
                 style={{ background: "#111", border: "1px solid rgba(212,175,55,0.12)" }}
               >
-                <div
-                  className="aspect-video flex flex-col items-center justify-center gap-2"
-                  style={{ background: "linear-gradient(155deg, #161616, #0a0a0a)" }}
-                >
-                  <ImageIcon size={26} style={{ color: "rgba(212,175,55,0.3)" }} />
-                  <span className="text-gray-600 text-xs">Thumbnail coming soon</span>
+                <div className="relative aspect-video" style={{ background: "linear-gradient(155deg, #161616, #0a0a0a)" }}>
+                  {post.thumbnail ? (
+                    <Image
+                      src={post.thumbnail.src}
+                      alt={post.thumbnail.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                      <ImageIcon size={26} style={{ color: "rgba(212,175,55,0.3)" }} />
+                      <span className="text-gray-600 text-xs">Thumbnail coming soon</span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-2 text-xs text-gray-500 mb-3">
