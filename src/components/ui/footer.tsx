@@ -33,6 +33,7 @@ export default function Footer() {
                 { href: "/siding-exterior", label: "Siding & Exterior" },
                 { href: "/#gallery", label: "Projects" },
                 { href: "/faq", label: "FAQ" },
+                { href: "/blog", label: "Blog" },
                 { href: "/#contact", label: "Contact" },
               ].map((l) => (
                 <Link key={l.href} href={l.href} className="block text-gray-400 hover:text-[#E8C766] text-sm transition-colors">

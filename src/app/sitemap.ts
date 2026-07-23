@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { blogPosts } from "@/lib/blog-posts";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://www.fourbrothersexteriors.com";
@@ -8,5 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/roof-repair`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/siding-exterior`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/faq`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${base}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
+    ...blogPosts.map((post) => ({
+      url: `${base}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
   ];
 }
