@@ -36,14 +36,14 @@ export default function FAQSection({ faqs, heading = "Frequently Asked Questions
             <div
               key={i}
               className="rounded-xl overflow-hidden transition-all duration-200"
-              style={{ background: "#111", border: open === i ? "1px solid rgba(255,215,0,0.3)" : "1px solid rgba(255,255,255,0.06)" }}
+              style={{ background: "#111", border: open === i ? "1px solid rgba(16,185,129,0.3)" : "1px solid rgba(255,255,255,0.06)" }}
             >
               <button
                 className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
                 onClick={() => setOpen(open === i ? null : i)}
               >
                 <span className="font-bold text-white text-sm leading-snug">{item.q}</span>
-                <span className="text-xl shrink-0 transition-transform duration-200" style={{ color: "#FFD700", transform: open === i ? "rotate(45deg)" : "none" }}>+</span>
+                <span className="text-xl shrink-0 transition-transform duration-200" style={{ color: "#10B981", transform: open === i ? "rotate(45deg)" : "none" }}>+</span>
               </button>
               {open === i && (
                 <div className="px-6 pb-5">

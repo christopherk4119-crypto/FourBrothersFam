@@ -54,7 +54,7 @@ export default function PopupForm() {
     >
       <div
         className="relative w-full max-w-md rounded-2xl p-8 shadow-2xl"
-        style={{ background: "#111", border: "1px solid rgba(255,215,0,0.3)", animation: "slideUp 0.4s ease-out" }}
+        style={{ background: "#111", border: "1px solid rgba(16,185,129,0.3)", animation: "slideUp 0.4s ease-out" }}
       >
         <style>{`
           @keyframes slideUp {
@@ -71,7 +71,7 @@ export default function PopupForm() {
           <div className="text-center py-8">
             <div className="text-5xl mb-4">✅</div>
             <h3 className="text-2xl font-black text-white mb-2">You&apos;re All Set!</h3>
-            <p className="text-gray-300">Thank you! We&apos;ll call you back shortly at <span style={{ color: "#FFD700" }}>{PRIMARY_PHONE_DISPLAY}</span>.</p>
+            <p className="text-gray-300">Thank you! We&apos;ll call you back shortly at <span style={{ color: "#10B981" }}>{PRIMARY_PHONE_DISPLAY}</span>.</p>
           </div>
         ) : (
           <>
@@ -129,7 +129,7 @@ export default function PopupForm() {
                 type="submit"
                 disabled={sending}
                 className="w-full py-4 rounded-full font-black text-black text-lg transition-all duration-200 hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
-                style={{ background: "linear-gradient(135deg, #FFD700, #FFA500)" }}
+                style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}
               >
                 {sending ? "Sending..." : "Send My Request"}
               </button>

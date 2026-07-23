@@ -118,7 +118,7 @@ export default function HomePage() {
       </div>
 
       {/* TRUST BAR */}
-      <div style={{ background: "#111", borderTop: "1px solid rgba(255,215,0,0.15)", borderBottom: "1px solid rgba(255,215,0,0.15)" }}>
+      <div style={{ background: "#111", borderTop: "1px solid rgba(16,185,129,0.15)", borderBottom: "1px solid rgba(16,185,129,0.15)" }}>
         <div className="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-center gap-6">
           {["✅ Licensed & Insured", "✅ Honest, Upfront Pricing", "✅ Workmanship Guarantee"].map((item) => (
             <span key={item} className="text-sm font-semibold text-gray-300 whitespace-nowrap">{item}</span>
@@ -136,8 +136,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <FadeIn key={s.title} delay={i * 100}>
-                <div className="rounded-2xl h-full p-8 flex flex-col" style={{ background: "linear-gradient(160deg, #141414, #0a0a0a)", border: "1px solid rgba(255,215,0,0.12)" }}>
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ background: "#000", border: "2px solid rgba(255,215,0,0.3)", color: "#FFD700" }}>
+                <div className="rounded-2xl h-full p-8 flex flex-col" style={{ background: "linear-gradient(160deg, #141414, #0a0a0a)", border: "1px solid rgba(16,185,129,0.12)" }}>
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6" style={{ background: "linear-gradient(155deg, rgba(16,185,129,0.18), rgba(16,185,129,0.04))", border: "2px solid rgba(16,185,129,0.35)", color: "#10B981" }}>
                     {s.icon}
                   </div>
                   <h3 className="text-xl font-black text-white mb-3">{s.title}</h3>
@@ -162,7 +162,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {reasons.map((r, i) => (
               <FadeIn key={r.title} delay={i * 80}>
-                <div className="p-6 rounded-2xl h-full" style={{ background: "#111", border: "1px solid rgba(255,215,0,0.1)" }}>
+                <div className="p-6 rounded-2xl h-full" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.1)" }}>
                   <div className="text-4xl mb-4">{r.icon}</div>
                   <h3 className="text-lg font-black text-white mb-2">{r.title}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">{r.desc}</p>
@@ -180,11 +180,11 @@ export default function HomePage() {
             <FadeIn>
               <div>
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6"
-                  style={{ background: "rgba(255,215,0,0.1)", border: "1px solid rgba(255,215,0,0.3)", color: "#FFD700" }}>
+                  style={{ background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.3)", color: "#10B981" }}>
                   About Us
                 </div>
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-                  Built on Experience. <span style={{ color: "#FFD700" }}>Focused on Quality.</span>
+                  Built on Experience. <span style={{ color: "#10B981" }}>Focused on Quality.</span>
                 </h2>
                 <div className="space-y-5 text-gray-300 leading-relaxed">
                   <p>
@@ -203,21 +203,21 @@ export default function HomePage() {
                     { number: "100%", label: "Honest Pricing" },
                     { number: "0", label: "Hidden Fees" },
                   ].map((stat) => (
-                    <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: "#111", border: "1px solid rgba(255,215,0,0.15)" }}>
-                      <div className="text-3xl font-black" style={{ color: "#FFD700" }}>{stat.number}</div>
+                    <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.15)" }}>
+                      <div className="text-3xl font-black" style={{ color: "#10B981" }}>{stat.number}</div>
                       <div className="text-gray-400 text-xs mt-1">{stat.label}</div>
                     </div>
                   ))}
                 </div>
                 <a href={`tel:${PRIMARY_PHONE_TEL}`} className="inline-block mt-8 px-8 py-4 rounded-full font-black text-black text-lg hover:scale-105 transition-transform duration-200"
-                  style={{ background: "linear-gradient(135deg, #FFD700, #FFA500)" }}>
+                  style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}>
                   Call Us Now
                 </a>
               </div>
             </FadeIn>
             <FadeIn delay={150}>
-              <div className="relative rounded-2xl overflow-hidden flex items-center justify-center" style={{ minHeight: 420, background: "linear-gradient(155deg, #1a1a1a, #0a0a0a)", border: "2px solid rgba(255,215,0,0.15)" }}>
-                <HardHat size={96} style={{ color: "rgba(255,215,0,0.25)" }} />
+              <div className="relative rounded-2xl overflow-hidden flex items-center justify-center" style={{ minHeight: 420, background: "linear-gradient(155deg, #1a1a1a, #0a0a0a)", border: "2px solid rgba(16,185,129,0.15)" }}>
+                <HardHat size={96} style={{ color: "rgba(16,185,129,0.25)" }} />
                 <span className="absolute bottom-6 text-gray-500 text-sm">Project photos coming soon</span>
               </div>
             </FadeIn>
@@ -235,11 +235,11 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {team.map((member, i) => (
               <FadeIn key={i} delay={i * 100}>
-                <div className="rounded-2xl p-8 text-center" style={{ background: "#111", border: "1px solid rgba(255,215,0,0.12)" }}>
-                  <div className="w-24 h-24 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: "linear-gradient(155deg, #1a1a1a, #0a0a0a)", border: "2px solid rgba(255,215,0,0.25)" }}>
-                    <HardHat size={36} style={{ color: "#FFD700" }} />
+                <div className="rounded-2xl p-8 text-center" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.12)" }}>
+                  <div className="w-24 h-24 rounded-full mx-auto mb-5 flex items-center justify-center" style={{ background: "linear-gradient(155deg, #1a1a1a, #0a0a0a)", border: "2px solid rgba(16,185,129,0.25)" }}>
+                    <HardHat size={36} style={{ color: "#10B981" }} />
                   </div>
-                  <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#FFD700" }}>{member.role}</div>
+                  <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "#10B981" }}>{member.role}</div>
                   <h3 className="text-xl font-black text-white mb-3 italic text-gray-400">{member.name}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">{member.bio}</p>
                 </div>
@@ -259,7 +259,7 @@ export default function HomePage() {
           <FAQAccordion />
           <FadeIn delay={100}>
             <div className="text-center mt-8">
-              <Link href="/faq" className="font-bold text-sm" style={{ color: "#FFD700" }}>See all FAQs →</Link>
+              <Link href="/faq" className="font-bold text-sm" style={{ color: "#10B981" }}>See all FAQs →</Link>
             </div>
           </FadeIn>
         </div>
@@ -275,8 +275,8 @@ export default function HomePage() {
           <FadeIn delay={100}>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {Array.from({ length: 8 }).map((_, i) => (
-                <div key={i} className="aspect-square rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(155deg, #161616, #0a0a0a)", border: "1px solid rgba(255,215,0,0.1)" }}>
-                  <Camera size={28} style={{ color: "rgba(255,215,0,0.2)" }} />
+                <div key={i} className="aspect-square rounded-xl flex items-center justify-center" style={{ background: "linear-gradient(155deg, #161616, #0a0a0a)", border: "1px solid rgba(16,185,129,0.1)" }}>
+                  <Camera size={28} style={{ color: "rgba(16,185,129,0.2)" }} />
                 </div>
               ))}
             </div>
@@ -294,8 +294,8 @@ export default function HomePage() {
           <FadeIn delay={100}>
             <div className="flex flex-wrap justify-center gap-3">
               {serviceAreas.map((area) => (
-                <div key={area} className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-gray-200" style={{ background: "#111", border: "1px solid rgba(255,215,0,0.15)" }}>
-                  <MapPin size={16} style={{ color: "#FFD700" }} /> {area}
+                <div key={area} className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold text-gray-200" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.15)" }}>
+                  <MapPin size={16} style={{ color: "#10B981" }} /> {area}
                 </div>
               ))}
             </div>
@@ -312,30 +312,30 @@ export default function HomePage() {
           </FadeIn>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12" id="contact">
             <FadeIn>
-              <div className="rounded-2xl p-8" style={{ background: "#111", border: "1px solid rgba(255,215,0,0.1)" }}>
+              <div className="rounded-2xl p-8" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.1)" }}>
                 <QuoteForm />
               </div>
             </FadeIn>
             <FadeIn delay={150}>
               <div className="space-y-6">
-                <div className="p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(255,215,0,0.1)" }}>
+                <div className="p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.1)" }}>
                   <div className="flex items-center gap-4 mb-2">
-                    <Phone size={24} style={{ color: "#FFD700" }} />
+                    <Phone size={24} style={{ color: "#10B981" }} />
                     <span className="text-gray-400 text-sm uppercase tracking-widest font-semibold">Call Us</span>
                   </div>
-                  <a href={`tel:${PRIMARY_PHONE_TEL}`} className="text-3xl font-black text-white hover:text-yellow-400 transition-colors block">{PRIMARY_PHONE_DISPLAY}</a>
-                  <p className="text-gray-500 text-xs mt-1">Or reach the other brother direct: <a href="tel:5143481366" className="hover:text-yellow-400">{SECONDARY_PHONE_DISPLAY}</a></p>
+                  <a href={`tel:${PRIMARY_PHONE_TEL}`} className="text-3xl font-black text-white hover:text-emerald-400 transition-colors block">{PRIMARY_PHONE_DISPLAY}</a>
+                  <p className="text-gray-500 text-xs mt-1">Or reach the other brother direct: <a href="tel:5143481366" className="hover:text-emerald-400">{SECONDARY_PHONE_DISPLAY}</a></p>
                 </div>
-                <div className="p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(255,215,0,0.1)" }}>
+                <div className="p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.1)" }}>
                   <div className="flex items-center gap-4 mb-2">
-                    <Mail size={24} style={{ color: "#FFD700" }} />
+                    <Mail size={24} style={{ color: "#10B981" }} />
                     <span className="text-gray-400 text-sm uppercase tracking-widest font-semibold">Email</span>
                   </div>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-lg font-bold text-white hover:text-yellow-400 transition-colors">{CONTACT_EMAIL}</a>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-lg font-bold text-white hover:text-emerald-400 transition-colors">{CONTACT_EMAIL}</a>
                 </div>
-                <div className="p-6 rounded-2xl" style={{ background: "rgba(255,215,0,0.05)", border: "1px solid rgba(255,215,0,0.3)" }}>
+                <div className="p-6 rounded-2xl" style={{ background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.3)" }}>
                   <div className="flex items-center gap-3 mb-2">
-                    <ShieldCheck size={20} style={{ color: "#FFD700" }} />
+                    <ShieldCheck size={20} style={{ color: "#10B981" }} />
                     <span className="font-black text-white">Calgary, AB</span>
                   </div>
                   <p className="text-gray-400 text-sm">Serving Calgary and surrounding areas including Airdrie, Cochrane, Okotoks, and Chestermere.</p>
@@ -357,14 +357,14 @@ function FAQAccordion() {
         <FadeIn key={item.q} delay={i * 60}>
           <div
             className="rounded-xl overflow-hidden transition-all duration-200"
-            style={{ background: "#111", border: open === i ? "1px solid rgba(255,215,0,0.3)" : "1px solid rgba(255,255,255,0.06)" }}
+            style={{ background: "#111", border: open === i ? "1px solid rgba(16,185,129,0.3)" : "1px solid rgba(255,255,255,0.06)" }}
           >
             <button
               className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
               onClick={() => setOpen(open === i ? null : i)}
             >
               <span className="font-bold text-white text-sm leading-snug">{item.q}</span>
-              <span className="text-xl shrink-0 transition-transform duration-200" style={{ color: "#FFD700", transform: open === i ? "rotate(45deg)" : "none" }}>+</span>
+              <span className="text-xl shrink-0 transition-transform duration-200" style={{ color: "#10B981", transform: open === i ? "rotate(45deg)" : "none" }}>+</span>
             </button>
             {open === i && (
               <div className="px-6 pb-5">

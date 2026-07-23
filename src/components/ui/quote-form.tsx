@@ -49,10 +49,10 @@ export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormP
   if (status === "success") {
     return (
       <div className="text-center py-16">
-        <CheckCircle size={64} className="mx-auto mb-4" style={{ color: "#FFD700" }} />
+        <CheckCircle size={64} className="mx-auto mb-4" style={{ color: "#10B981" }} />
         <h3 className="text-3xl font-black text-white mb-2">Quote Request Sent!</h3>
         <p className="text-gray-300 text-lg">
-          We&apos;ll call you back shortly at <span style={{ color: "#FFD700" }}>{PRIMARY_PHONE_DISPLAY}</span>.
+          We&apos;ll call you back shortly at <span style={{ color: "#10B981" }}>{PRIMARY_PHONE_DISPLAY}</span>.
         </p>
       </div>
     );
@@ -121,7 +121,7 @@ export default function QuoteForm({ defaultService = "Roof Repair" }: QuoteFormP
         type="submit"
         disabled={status === "loading"}
         className="w-full py-4 rounded-full font-black text-black text-lg transition-all duration-200 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
-        style={{ background: "linear-gradient(135deg, #FFD700, #FFA500)" }}
+        style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}
       >
         {status === "loading" ? "Sending..." : "Request My Free Quote"}
       </button>

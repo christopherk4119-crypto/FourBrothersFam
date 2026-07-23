@@ -49,22 +49,22 @@ export default function ServicePageLayout({
       {/* HERO */}
       <section className="relative min-h-[65vh] flex items-center justify-center overflow-hidden" style={{ background: "#080808" }}>
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,215,0,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.1) 0%, transparent 70%)",
         }} />
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: "linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(16,185,129,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.03) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }} />
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto py-28">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-8"
-            style={{ background: "rgba(255,215,0,0.08)", border: "1px solid rgba(255,215,0,0.25)", color: "#FFD700" }}>
+            style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.25)", color: "#10B981" }}>
             🏠 Licensed &amp; Insured &nbsp;·&nbsp; Free Estimates
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight" style={{ letterSpacing: "-0.02em" }}>
             {heroHeadline.split(" ").map((word, i, arr) =>
               i === arr.length - 1
-                ? <span key={i} style={{ color: "#FFD700" }}> {word}</span>
+                ? <span key={i} style={{ color: "#10B981" }}> {word}</span>
                 : <span key={i}>{word} </span>
             )}
           </h1>
@@ -80,7 +80,7 @@ export default function ServicePageLayout({
           <div className="flex flex-wrap justify-center gap-8 mt-14">
             {["Honest, Upfront Pricing", "Workmanship Guarantee", "Fast Response"].map((t) => (
               <div key={t} className="flex items-center gap-2 text-sm text-gray-400">
-                <span style={{ color: "#FFD700" }}>✓</span> {t}
+                <span style={{ color: "#10B981" }}>✓</span> {t}
               </div>
             ))}
           </div>
@@ -112,7 +112,7 @@ export default function ServicePageLayout({
                     ) : (
                       <p className="text-gray-400 text-sm mb-4 leading-relaxed">{s.desc}</p>
                     )}
-                    <a href="#quote" className="inline-flex items-center gap-1 text-sm font-bold" style={{ color: "#FFD700" }}>
+                    <a href="#quote" className="inline-flex items-center gap-1 text-sm font-bold" style={{ color: "#10B981" }}>
                       Get a Quote <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                     </a>
                   </div>
@@ -146,7 +146,7 @@ export default function ServicePageLayout({
             <p className="section-subheading">Tell us about your project — we&apos;ll call you back with honest pricing.</p>
           </FadeIn>
           <FadeIn delay={100}>
-            <div className="rounded-2xl p-8" style={{ background: "#111", border: "1px solid rgba(255,215,0,0.15)", boxShadow: "0 0 60px rgba(255,215,0,0.04)" }}>
+            <div className="rounded-2xl p-8" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.15)", boxShadow: "0 0 60px rgba(16,185,129,0.04)" }}>
               <QuoteForm defaultService={serviceType} />
             </div>
           </FadeIn>

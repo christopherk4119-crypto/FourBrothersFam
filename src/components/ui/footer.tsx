@@ -5,7 +5,7 @@ import { PRIMARY_PHONE_TEL, PRIMARY_PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/c
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#0a0a0a", borderTop: "1px solid rgba(255,215,0,0.15)" }}>
+    <footer style={{ background: "#0a0a0a", borderTop: "1px solid rgba(16,185,129,0.15)" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo + tagline */}
@@ -13,7 +13,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <Image src="/logo.png" alt="Four Brothers Exteriors logo" width={44} height={44} className="rounded-lg" />
               <div>
-                <div className="font-black text-lg" style={{ color: "#FFD700" }}>Four Brothers</div>
+                <div className="font-black text-lg" style={{ color: "#10B981" }}>Four Brothers</div>
                 <div className="text-xs text-gray-500">Exteriors</div>
               </div>
             </div>
@@ -35,7 +35,7 @@ export default function Footer() {
                 { href: "/faq", label: "FAQ" },
                 { href: "/#contact", label: "Contact" },
               ].map((l) => (
-                <Link key={l.href} href={l.href} className="block text-gray-400 hover:text-yellow-400 text-sm transition-colors">
+                <Link key={l.href} href={l.href} className="block text-gray-400 hover:text-emerald-400 text-sm transition-colors">
                   {l.label}
                 </Link>
               ))}
@@ -46,14 +46,14 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-widest">Contact Us</h4>
             <div className="space-y-2">
-              <a href={`tel:${PRIMARY_PHONE_TEL}`} className="block font-bold text-yellow-400 hover:text-yellow-300">{PRIMARY_PHONE_DISPLAY}</a>
+              <a href={`tel:${PRIMARY_PHONE_TEL}`} className="block font-bold text-emerald-400 hover:text-emerald-300">{PRIMARY_PHONE_DISPLAY}</a>
               <a href={`mailto:${CONTACT_EMAIL}`} className="block text-gray-400 hover:text-white text-sm">{CONTACT_EMAIL}</a>
               <p className="text-gray-500 text-sm pt-2">Serving Calgary, AB &amp; surrounding areas</p>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4" style={{ borderTop: "1px solid rgba(255,215,0,0.1)" }}>
+        <div className="mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4" style={{ borderTop: "1px solid rgba(16,185,129,0.1)" }}>
           <p className="text-gray-600 text-sm">© 2026 Four Brothers Exteriors — Calgary, AB</p>
           <p className="text-gray-600 text-sm italic">Licensed &amp; Insured</p>
         </div>

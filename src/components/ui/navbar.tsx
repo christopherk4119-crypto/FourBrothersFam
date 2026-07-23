@@ -27,14 +27,14 @@ export default function Navbar() {
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{ background: scrolled ? "rgba(10,10,10,0.97)" : "rgba(10,10,10,0.85)", backdropFilter: "blur(12px)", borderBottom: scrolled ? "1px solid rgba(255,215,0,0.2)" : "none" }}
+      style={{ background: scrolled ? "rgba(10,10,10,0.97)" : "rgba(10,10,10,0.85)", backdropFilter: "blur(12px)", borderBottom: scrolled ? "1px solid rgba(16,185,129,0.2)" : "none" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2 min-w-[180px]">
             <Image src="/logo.png" alt="Four Brothers Exteriors logo" width={48} height={48} className="rounded-lg" priority />
             <div>
-              <div className="font-black text-lg leading-tight" style={{ color: "#FFD700" }}>Four Brothers</div>
+              <div className="font-black text-lg leading-tight" style={{ color: "#10B981" }}>Four Brothers</div>
               <div className="text-xs text-gray-400 leading-tight">Exteriors</div>
             </div>
           </Link>
@@ -46,7 +46,7 @@ export default function Navbar() {
                 key={l.href}
                 href={l.href}
                 className="font-semibold text-sm uppercase tracking-wide transition-colors duration-200"
-                style={{ color: pathname === l.href ? "#FFD700" : "#e5e7eb" }}
+                style={{ color: pathname === l.href ? "#10B981" : "#e5e7eb" }}
               >
                 {l.label}
               </Link>
@@ -56,13 +56,13 @@ export default function Navbar() {
           {/* Right Side */}
           <div className="hidden md:flex items-center gap-4">
             <a href="tel:5878919200" className="flex items-center gap-2 text-white font-bold text-sm">
-              <Phone size={16} style={{ color: "#FFD700" }} />
+              <Phone size={16} style={{ color: "#10B981" }} />
               (587) 891-9200
             </a>
             <Link
               href="/#contact"
               className="px-5 py-2 rounded-full font-bold text-sm text-black transition-all duration-200 hover:scale-105"
-              style={{ background: "#FFD700" }}
+              style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}
             >
               Get a Free Quote
             </Link>
@@ -75,8 +75,8 @@ export default function Navbar() {
         </div>
 
         {/* Mobile quick-access bar */}
-        <div className="md:hidden flex items-center justify-around pb-2" style={{ borderTop: "1px solid rgba(255,215,0,0.12)" }}>
-          <Link href="/" className="flex flex-col items-center gap-0.5 px-4 pt-2" style={{ color: pathname === "/" ? "#FFD700" : "#e5e7eb" }}>
+        <div className="md:hidden flex items-center justify-around pb-2" style={{ borderTop: "1px solid rgba(16,185,129,0.12)" }}>
+          <Link href="/" className="flex flex-col items-center gap-0.5 px-4 pt-2" style={{ color: pathname === "/" ? "#10B981" : "#e5e7eb" }}>
             <Home size={18} />
             <span className="text-[11px] font-bold uppercase tracking-wide">Home</span>
           </Link>
@@ -97,7 +97,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden" style={{ background: "#0a0a0a", borderTop: "1px solid rgba(255,215,0,0.2)" }}>
+        <div className="md:hidden" style={{ background: "#0a0a0a", borderTop: "1px solid rgba(16,185,129,0.2)" }}>
           <div className="px-4 py-6 space-y-4">
             {navLinks.map((l) => (
               <Link
@@ -105,21 +105,21 @@ export default function Navbar() {
                 href={l.href}
                 onClick={() => setOpen(false)}
                 className="block font-bold text-lg py-2"
-                style={{ color: pathname === l.href ? "#FFD700" : "#e5e7eb" }}
+                style={{ color: pathname === l.href ? "#10B981" : "#e5e7eb" }}
               >
                 {l.label}
               </Link>
             ))}
             <div className="pt-4 border-t border-gray-800 space-y-3">
               <a href="tel:5878919200" className="flex items-center gap-2 text-white font-bold">
-                <Phone size={16} style={{ color: "#FFD700" }} />
+                <Phone size={16} style={{ color: "#10B981" }} />
                 (587) 891-9200
               </a>
               <Link
                 href="/#contact"
                 onClick={() => setOpen(false)}
                 className="block text-center px-5 py-3 rounded-full font-bold text-black"
-                style={{ background: "#FFD700" }}
+                style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}
               >
                 Get a Free Quote
               </Link>

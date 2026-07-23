@@ -135,9 +135,9 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
           from { opacity: 0; transform: translateY(30px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pulse-yellow {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(255,215,0,0.4); }
-          50% { box-shadow: 0 0 0 12px rgba(255,215,0,0); }
+        @keyframes pulse-brass {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(212,175,55,0.4); }
+          50% { box-shadow: 0 0 0 12px rgba(212,175,55,0); }
         }
         .hero-fade-down { animation: fade-in-down 0.8s ease-out forwards; }
         .hero-fade-up { animation: fade-in-up 0.8s ease-out forwards; opacity: 0; }
@@ -145,7 +145,7 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
         .delay-400 { animation-delay: 0.4s; }
         .delay-600 { animation-delay: 0.6s; }
         .delay-800 { animation-delay: 0.8s; }
-        .pulse-yellow:hover { animation: pulse-yellow 1.2s infinite; }
+        .pulse-brass:hover { animation: pulse-brass 1.2s infinite; }
       `}</style>
 
       <canvas
@@ -157,11 +157,11 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white px-4">
         {trustBadge && (
           <div className="mb-8 hero-fade-down">
-            <div className="flex items-center gap-2 px-6 py-3 bg-yellow-500/10 backdrop-blur-md border border-yellow-400/30 rounded-full text-sm">
+            <div className="flex items-center gap-2 px-6 py-3 bg-emerald-500/10 backdrop-blur-md border border-emerald-400/30 rounded-full text-sm">
               {trustBadge.icons?.map((icon, i) => (
-                <span key={i} className="text-yellow-300">{icon}</span>
+                <span key={i} className="text-emerald-300">{icon}</span>
               ))}
-              <span className="text-yellow-100">{trustBadge.text}</span>
+              <span className="text-emerald-100">{trustBadge.text}</span>
             </div>
           </div>
         )}
@@ -169,11 +169,11 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
         <div className="text-center space-y-6 max-w-5xl mx-auto">
           <div className="space-y-2">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black hero-fade-up delay-200"
-              style={{ background: "linear-gradient(to right, #FFD700, #FFA500, #FFD700)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              style={{ background: "linear-gradient(to right, #10B981, #059669, #10B981)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               {headline.line1}
             </h1>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black hero-fade-up delay-400"
-              style={{ background: "linear-gradient(to right, #FFFFFF, #FFD700, #FFFFFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+              style={{ background: "linear-gradient(to right, #FFFFFF, #10B981, #FFFFFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               {headline.line2}
             </h1>
           </div>
@@ -189,8 +189,8 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
               {buttons.primary && (
                 <button
                   onClick={buttons.primary.onClick}
-                  className="pulse-yellow px-8 py-4 rounded-full font-bold text-lg text-black transition-all duration-300 hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #FFD700, #FFA500)" }}
+                  className="pulse-brass px-8 py-4 rounded-full font-bold text-lg text-black transition-all duration-300 hover:scale-105"
+                  style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}
                 >
                   {buttons.primary.text}
                 </button>
@@ -198,7 +198,7 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
               {buttons.secondary && (
                 <button
                   onClick={buttons.secondary.onClick}
-                  className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 hover:border-yellow-400/50 text-white rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                  className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 hover:border-emerald-400/50 text-white rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
                 >
                   {buttons.secondary.text}
                 </button>

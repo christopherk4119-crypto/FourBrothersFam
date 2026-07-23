@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --yellow: #FFD700;
-  --yellow-dark: #FFA500;
+  --emerald: #10B981;
+  --emerald-dark: #059669;
+  --brass: #D4AF37;
+  --brass-dark: #9B7A22;
   --black: #0a0a0a;
   --card-bg: #111111;
 }
@@ -29,23 +31,23 @@ body {
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
-  border: 1px solid rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.1);
 }
 .service-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 215, 0, 0.25), 0 0 40px rgba(255, 215, 0, 0.08);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(16, 185, 129, 0.3), 0 0 40px rgba(16, 185, 129, 0.1);
 }
 .service-card:hover .service-card-bg { transform: scale(1.08); }
 .service-card-bg { transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
 
-/* Gold shimmer border on hover */
+/* Emerald shimmer border on hover */
 .service-card::after {
   content: '';
   position: absolute;
   inset: 0;
   border-radius: 20px;
   border: 1px solid transparent;
-  background: linear-gradient(135deg, rgba(255,215,0,0.3), transparent 50%) border-box;
+  background: linear-gradient(135deg, rgba(16,185,129,0.3), transparent 50%) border-box;
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -73,7 +75,7 @@ body {
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
-.section-heading span { color: #FFD700; }
+.section-heading span { color: #10B981; }
 
 .section-subheading {
   text-align: center;
@@ -90,31 +92,31 @@ body {
   border-radius: 20px;
   height: 100%;
   background: #111;
-  border: 1px solid rgba(255,215,0,0.08);
+  border: 1px solid rgba(16,185,129,0.08);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .reason-card:hover {
-  border-color: rgba(255,215,0,0.3);
-  box-shadow: 0 8px 32px rgba(255,215,0,0.06);
+  border-color: rgba(16,185,129,0.3);
+  box-shadow: 0 8px 32px rgba(16,185,129,0.06);
   transform: translateY(-4px);
 }
 
 /* ── INPUTS ── */
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: #FFD700 !important;
-  box-shadow: 0 0 0 3px rgba(255,215,0,0.12);
+  border-color: #10B981 !important;
+  box-shadow: 0 0 0 3px rgba(16,185,129,0.12);
 }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #FFD700; }
+::-webkit-scrollbar-thumb:hover { background: #10B981; }
 
 /* ── GOLD GLOW BUTTON ── */
 .btn-gold {
-  background: linear-gradient(135deg, #FFD700, #FFA500);
+  background: linear-gradient(135deg, #D4AF37, #9B7A22);
   color: #000;
   font-weight: 900;
   border-radius: 9999px;
@@ -122,21 +124,21 @@ input:focus, select:focus, textarea:focus {
 }
 .btn-gold:hover {
   transform: scale(1.05);
-  box-shadow: 0 8px 32px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.4);
 }
 
 /* ── STAT BADGE ── */
 .stat-badge {
-  background: rgba(255,215,0,0.06);
-  border: 1px solid rgba(255,215,0,0.15);
+  background: rgba(16,185,129,0.06);
+  border: 1px solid rgba(16,185,129,0.15);
   border-radius: 16px;
   padding: 24px;
   text-align: center;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 .stat-badge:hover {
-  background: rgba(255,215,0,0.1);
-  border-color: rgba(255,215,0,0.35);
+  background: rgba(16,185,129,0.1);
+  border-color: rgba(16,185,129,0.35);
 }
 
 /* ── NOISE TEXTURE OVERLAY ── */

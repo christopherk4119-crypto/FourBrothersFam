@@ -83,19 +83,19 @@ export default function FAQPage() {
       {/* HERO */}
       <section className="relative flex items-center justify-center overflow-hidden" style={{ background: "#080808", minHeight: "40vh" }}>
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,215,0,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.08) 0%, transparent 70%)",
         }} />
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: "linear-gradient(rgba(255,215,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,215,0,0.03) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(16,185,129,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.03) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }} />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto py-24">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-6"
-            style={{ background: "rgba(255,215,0,0.08)", border: "1px solid rgba(255,215,0,0.25)", color: "#FFD700" }}>
+            style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.25)", color: "#10B981" }}>
             🏠 Quick Answers
           </div>
           <h1 className="text-5xl md:text-6xl font-black text-white mb-4 leading-tight" style={{ letterSpacing: "-0.02em" }}>
-            Roofing &amp; Exterior <span style={{ color: "#FFD700" }}>FAQs</span>
+            Roofing &amp; Exterior <span style={{ color: "#10B981" }}>FAQs</span>
           </h1>
           <p className="text-gray-400 text-xl">Everything Calgary homeowners ask about roof repair, installation &amp; siding.</p>
         </div>
