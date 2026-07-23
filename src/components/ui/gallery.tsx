@@ -32,7 +32,7 @@ export default function Gallery({ photos, columns = 4 }: GalleryProps) {
             key={i}
             onClick={() => setLightbox(i)}
             className="relative aspect-square overflow-hidden rounded-xl group cursor-pointer"
-            style={{ border: "1px solid rgba(16,185,129,0.1)" }}
+            style={{ border: "1px solid rgba(212,175,55,0.1)" }}
           >
             <Image
               src={photo.src}
@@ -56,19 +56,19 @@ export default function Gallery({ photos, columns = 4 }: GalleryProps) {
         >
           <button
             onClick={(e) => { e.stopPropagation(); setLightbox(null); }}
-            className="absolute top-4 right-4 text-white hover:text-emerald-400 transition-colors z-10"
+            className="absolute top-4 right-4 text-white hover:text-[#E8C766] transition-colors z-10"
           >
             <X size={32} />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); prev(); }}
-            className="absolute left-4 text-white hover:text-emerald-400 transition-colors z-10"
+            className="absolute left-4 text-white hover:text-[#E8C766] transition-colors z-10"
           >
             <ChevronLeft size={40} />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); next(); }}
-            className="absolute right-4 text-white hover:text-emerald-400 transition-colors z-10"
+            className="absolute right-4 text-white hover:text-[#E8C766] transition-colors z-10"
           >
             <ChevronRight size={40} />
           </button>

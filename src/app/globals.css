@@ -1,10 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --emerald: #10B981;
-  --emerald-dark: #059669;
-  --brass: #D4AF37;
+  --gold: #D4AF37;
+  --gold-light: #E8C766;
   --brass-dark: #9B7A22;
+  --green: #10B981;
+  --green-dark: #059669;
   --black: #0a0a0a;
   --card-bg: #111111;
 }
@@ -47,7 +48,7 @@ body {
   inset: 0;
   border-radius: 20px;
   border: 1px solid transparent;
-  background: linear-gradient(135deg, rgba(16,185,129,0.3), transparent 50%) border-box;
+  background: linear-gradient(135deg, rgba(212,175,55,0.3), transparent 50%) border-box;
   opacity: 0;
   transition: opacity 0.4s ease;
   pointer-events: none;
@@ -80,7 +81,7 @@ h1, h2, h3, .section-heading, .display-font {
   line-height: 1.1;
   text-transform: uppercase;
 }
-.section-heading span { color: #10B981; }
+.section-heading span { color: #D4AF37; }
 
 .section-subheading {
   text-align: center;
@@ -97,27 +98,27 @@ h1, h2, h3, .section-heading, .display-font {
   border-radius: 20px;
   height: 100%;
   background: #111;
-  border: 1px solid rgba(16,185,129,0.08);
+  border: 1px solid rgba(212,175,55,0.08);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 .reason-card:hover {
-  border-color: rgba(16,185,129,0.3);
-  box-shadow: 0 8px 32px rgba(16,185,129,0.06);
+  border-color: rgba(212,175,55,0.3);
+  box-shadow: 0 8px 32px rgba(212,175,55,0.06);
   transform: translateY(-4px);
 }
 
 /* ── INPUTS ── */
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: #10B981 !important;
-  box-shadow: 0 0 0 3px rgba(16,185,129,0.12);
+  border-color: #D4AF37 !important;
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.12);
 }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #0a0a0a; }
 ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: #10B981; }
+::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
 
 /* ── GOLD GLOW BUTTON ── */
 .btn-gold {
@@ -134,16 +135,16 @@ input:focus, select:focus, textarea:focus {
 
 /* ── STAT BADGE ── */
 .stat-badge {
-  background: rgba(16,185,129,0.06);
-  border: 1px solid rgba(16,185,129,0.15);
+  background: rgba(212,175,55,0.06);
+  border: 1px solid rgba(212,175,55,0.15);
   border-radius: 16px;
   padding: 24px;
   text-align: center;
   transition: border-color 0.3s ease, background 0.3s ease;
 }
 .stat-badge:hover {
-  background: rgba(16,185,129,0.1);
-  border-color: rgba(16,185,129,0.35);
+  background: rgba(212,175,55,0.1);
+  border-color: rgba(212,175,55,0.35);
 }
 
 /* ── NOISE TEXTURE OVERLAY ── */

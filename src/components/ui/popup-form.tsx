@@ -59,7 +59,7 @@ export default function PopupForm() {
     >
       <div
         className="relative w-full max-w-md rounded-2xl p-8 shadow-2xl"
-        style={{ background: "#111", border: "1px solid rgba(16,185,129,0.3)", animation: "slideUp 0.4s ease-out" }}
+        style={{ background: "#111", border: "1px solid rgba(212,175,55,0.3)", animation: "slideUp 0.4s ease-out" }}
       >
         <style>{`
           @keyframes slideUp {
@@ -76,7 +76,7 @@ export default function PopupForm() {
           <div className="text-center py-8">
             <div className="text-5xl mb-4">✅</div>
             <h3 className="text-2xl font-black text-white mb-2">You&apos;re All Set!</h3>
-            <p className="text-gray-300">Thank you! We&apos;ll be in touch shortly. In a hurry? Call <span style={{ color: "#10B981" }}>{PRIMARY_PHONE_DISPLAY}</span>.</p>
+            <p className="text-gray-300">Thank you! We&apos;ll be in touch shortly. In a hurry? Call <span style={{ color: "#D4AF37" }}>{PRIMARY_PHONE_DISPLAY}</span>.</p>
           </div>
         ) : (
           <>
@@ -100,9 +100,9 @@ export default function PopupForm() {
                   onClick={() => setContactMethod("phone")}
                   className="flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all"
                   style={{
-                    background: contactMethod === "phone" ? "rgba(16,185,129,0.15)" : "#1a1a1a",
-                    border: contactMethod === "phone" ? "1px solid #10B981" : "1px solid #333",
-                    color: contactMethod === "phone" ? "#10B981" : "#9ca3af",
+                    background: contactMethod === "phone" ? "rgba(212,175,55,0.15)" : "#1a1a1a",
+                    border: contactMethod === "phone" ? "1px solid #D4AF37" : "1px solid #333",
+                    color: contactMethod === "phone" ? "#D4AF37" : "#9ca3af",
                   }}
                 >
                   <Phone size={14} /> Phone
@@ -112,9 +112,9 @@ export default function PopupForm() {
                   onClick={() => setContactMethod("email")}
                   className="flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all"
                   style={{
-                    background: contactMethod === "email" ? "rgba(16,185,129,0.15)" : "#1a1a1a",
-                    border: contactMethod === "email" ? "1px solid #10B981" : "1px solid #333",
-                    color: contactMethod === "email" ? "#10B981" : "#9ca3af",
+                    background: contactMethod === "email" ? "rgba(212,175,55,0.15)" : "#1a1a1a",
+                    border: contactMethod === "email" ? "1px solid #D4AF37" : "1px solid #333",
+                    color: contactMethod === "email" ? "#D4AF37" : "#9ca3af",
                   }}
                 >
                   <Mail size={14} /> Email

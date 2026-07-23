@@ -55,22 +55,22 @@ export default function ServicePageLayout({
       {/* HERO */}
       <section className="relative min-h-[65vh] flex items-center justify-center overflow-hidden" style={{ background: "#080808" }}>
         <div className="absolute inset-0 pointer-events-none" style={{
-          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,175,55,0.1) 0%, transparent 70%)",
         }} />
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: "linear-gradient(rgba(16,185,129,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.03) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(rgba(212,175,55,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.03) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
         }} />
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto py-28">
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-8"
-            style={{ background: "rgba(16,185,129,0.08)", border: "1px solid rgba(16,185,129,0.25)", color: "#10B981" }}>
+            style={{ background: "rgba(212,175,55,0.08)", border: "1px solid rgba(212,175,55,0.25)", color: "#D4AF37" }}>
             🏠 Licensed &amp; Insured &nbsp;·&nbsp; Free Estimates
           </div>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 leading-tight" style={{ letterSpacing: "0.01em" }}>
             {heroHeadline.split(" ").map((word, i, arr) =>
               i === arr.length - 1
-                ? <span key={i} style={{ color: "#10B981" }}> {word}</span>
+                ? <span key={i} style={{ color: "#D4AF37" }}> {word}</span>
                 : <span key={i}>{word} </span>
             )}
           </h1>
@@ -84,12 +84,12 @@ export default function ServicePageLayout({
             </a>
           </div>
           <p className="text-gray-300 text-base mt-5">
-            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#D4AF37" }}>{SECONDARY_PHONE_DISPLAY}</a>
+            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
           </p>
           <div className="flex flex-wrap justify-center gap-8 mt-10">
             {["Honest, Upfront Pricing", "Workmanship Guarantee", "Fast Response"].map((t) => (
               <div key={t} className="flex items-center gap-2 text-sm text-gray-400">
-                <span style={{ color: "#10B981" }}>✓</span> {t}
+                <span style={{ color: "#D4AF37" }}>✓</span> {t}
               </div>
             ))}
           </div>
@@ -121,7 +121,7 @@ export default function ServicePageLayout({
                     ) : (
                       <p className="text-gray-400 text-sm mb-4 leading-relaxed">{s.desc}</p>
                     )}
-                    <a href="#quote" className="inline-flex items-center gap-1 text-sm font-bold" style={{ color: "#10B981" }}>
+                    <a href="#quote" className="inline-flex items-center gap-1 text-sm font-bold" style={{ color: "#D4AF37" }}>
                       Get a Quote <span className="transition-transform duration-200 group-hover:translate-x-1">→</span>
                     </a>
                   </div>
@@ -149,7 +149,7 @@ export default function ServicePageLayout({
 
       {/* LEARN MORE */}
       {learnMore && (
-        <section className="section" style={{ background: "#0d0d0d" }}>
+        <section className="section" style={{ background: "linear-gradient(160deg, #0f2b21 0%, #071711 55%, #050f0c 100%)" }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
               <FadeIn className="lg:col-span-2">
@@ -163,12 +163,12 @@ export default function ServicePageLayout({
                 </div>
               </FadeIn>
               <FadeIn delay={100}>
-                <div className="rounded-2xl p-7 lg:sticky lg:top-28" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.15)" }}>
-                  <h3 className="text-sm font-bold uppercase tracking-widest mb-5" style={{ color: "#10B981" }}>At a Glance</h3>
+                <div className="rounded-2xl p-7 lg:sticky lg:top-28" style={{ background: "#111", border: "1px solid rgba(212,175,55,0.15)" }}>
+                  <h3 className="text-sm font-bold uppercase tracking-widest mb-5" style={{ color: "#D4AF37" }}>At a Glance</h3>
                   <ul className="space-y-3 mb-6">
                     {learnMore.highlights.map((h) => (
                       <li key={h} className="flex items-start gap-2 text-sm text-gray-300">
-                        <span style={{ color: "#10B981" }} className="mt-0.5">✓</span> {h}
+                        <span style={{ color: "#D4AF37" }} className="mt-0.5">✓</span> {h}
                       </li>
                     ))}
                   </ul>
@@ -190,7 +190,7 @@ export default function ServicePageLayout({
             <p className="section-subheading">Tell us about your project — we&apos;ll get back to you with honest pricing.</p>
           </FadeIn>
           <FadeIn delay={100}>
-            <div className="rounded-2xl p-8" style={{ background: "#111", border: "1px solid rgba(16,185,129,0.15)", boxShadow: "0 0 60px rgba(16,185,129,0.04)" }}>
+            <div className="rounded-2xl p-8" style={{ background: "#111", border: "1px solid rgba(212,175,55,0.15)", boxShadow: "0 0 60px rgba(212,175,55,0.04)" }}>
               <QuoteForm defaultService={serviceType} />
             </div>
           </FadeIn>
