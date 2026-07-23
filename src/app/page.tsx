@@ -7,7 +7,7 @@ import QuoteForm from "@/components/ui/quote-form";
 import Gallery from "@/components/ui/gallery";
 import {
   Phone, Mail, Home as HomeIcon, HardHat, PanelsTopLeft, ShieldCheck,
-  MapPin,
+  MapPin, Handshake, Wallet,
 } from "lucide-react";
 import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, CONTACT_EMAIL } from "@/lib/config";
 
@@ -204,16 +204,32 @@ export default function HomePage() {
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
                   Built on Experience. <span style={{ color: "#D4AF37" }}>Focused on Quality.</span>
                 </h2>
-                <div className="space-y-5 text-gray-300 leading-relaxed">
-                  <p>
-                    Our team brings years of hands-on experience working with established roofing and exterior companies across Calgary.
-                    We&apos;ve taken that experience and built our own company with a simple goal — deliver honest service, reliable
-                    workmanship, and results homeowners can trust.
+                <div
+                  className="pl-5 mb-6"
+                  style={{ borderLeft: "3px solid #D4AF37" }}
+                >
+                  <p className="text-xl text-gray-200 leading-snug font-medium">
+                    Built on years of hands-on Calgary roofing experience —
+                    now our own company, with one simple goal:{" "}
+                    <span style={{ color: "#D4AF37" }}>honest service, reliable workmanship, results you can trust.</span>
                   </p>
-                  <p>
-                    Whether it&apos;s a small repair or a full exterior project, we take pride in doing the job right the first time.
-                    No matter your budget, we work with you to find the right solution for your home.
-                  </p>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    { icon: HardHat, text: "Years of hands-on experience with established roofing and exterior companies across Calgary" },
+                    { icon: Handshake, text: "We take pride in doing every job right the first time — small repair or full exterior project" },
+                    { icon: Wallet, text: "No matter your budget, we work with you to find the right solution for your home" },
+                  ].map((item) => (
+                    <div key={item.text} className="flex items-start gap-4">
+                      <div
+                        className="flex items-center justify-center rounded-full shrink-0"
+                        style={{ width: 40, height: 40, background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.3)" }}
+                      >
+                        <item.icon size={18} style={{ color: "#D4AF37" }} />
+                      </div>
+                      <p className="text-gray-300 leading-relaxed pt-2">{item.text}</p>
+                    </div>
+                  ))}
                 </div>
                 <div className="grid grid-cols-3 gap-4 mt-8">
                   {[
