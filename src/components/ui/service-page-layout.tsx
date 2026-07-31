@@ -2,6 +2,8 @@
 import React, { useEffect, useRef } from "react";
 import Gallery, { GalleryPhoto } from "@/components/ui/gallery";
 import QuoteForm from "@/components/ui/quote-form";
+import ServiceSchema from "@/components/ui/service-schema";
+import BreadcrumbSchema from "@/components/ui/breadcrumb-schema";
 import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL } from "@/lib/config";
 
 interface ServiceItem {
@@ -41,6 +43,12 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   return <div ref={ref} className={`fade-in ${className}`} style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
 }
 
+const SERVICE_PATHS: Record<ServicePageLayoutProps["serviceType"], string> = {
+  "Roof Repair": "/roof-repair",
+  "Roof Installation": "/roof-installation",
+  "Siding & Exterior": "/siding-exterior",
+};
+
 export default function ServicePageLayout({
   heroHeadline,
   heroSubheadline,
@@ -50,8 +58,11 @@ export default function ServicePageLayout({
   galleryPhotos,
   learnMore,
 }: ServicePageLayoutProps) {
+  const path = SERVICE_PATHS[serviceType];
   return (
     <>
+      <ServiceSchema name={serviceType} description={heroSubheadline} path={path} />
+      <BreadcrumbSchema items={[{ name: "Home", path: "" }, { name: serviceType, path }]} />
       {/* HERO */}
       <section className="relative min-h-[65vh] flex items-center justify-center overflow-hidden" style={{ background: "#080808" }}>
         <div className="absolute inset-0 pointer-events-none" style={{

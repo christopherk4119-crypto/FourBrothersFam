@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Image as ImageIcon, Calendar } from "lucide-react";
 import { blogPosts } from "@/lib/blog-posts";
 import { SITE_URL } from "@/lib/config";
+import BreadcrumbSchema from "@/components/ui/breadcrumb-schema";
 
 export const metadata: Metadata = {
   title: "Roofing Blog | Tips & Guides for Calgary Homeowners",
@@ -33,6 +34,7 @@ export const metadata: Metadata = {
 export default function BlogIndexPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ name: "Home", path: "" }, { name: "Blog", path: "/blog" }]} />
       {/* HERO */}
       <section className="relative flex items-center justify-center overflow-hidden" style={{ background: "#080808", minHeight: "40vh" }}>
         <div className="absolute inset-0 pointer-events-none" style={{

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FAQSection from "@/components/ui/faq-section";
+import BreadcrumbSchema from "@/components/ui/breadcrumb-schema";
 import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -117,6 +118,7 @@ const faqs = [
 export default function FAQPage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ name: "Home", path: "" }, { name: "FAQ", path: "/faq" }]} />
       {/* HERO */}
       <section className="relative flex items-center justify-center overflow-hidden" style={{ background: "#080808", minHeight: "40vh" }}>
         <div className="absolute inset-0 pointer-events-none" style={{

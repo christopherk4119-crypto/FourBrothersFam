@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost } from "@/lib/blog-posts";
 import BlogPostLayout from "@/components/ui/blog-post-layout";
+import BreadcrumbSchema from "@/components/ui/breadcrumb-schema";
 import { SITE_URL } from "@/lib/config";
 
 const siteUrl = SITE_URL;
@@ -62,6 +63,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", path: "" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` },
+        ]}
+      />
       <BlogPostLayout post={post} />
     </>
   );
