@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import ServicePageLayout from "@/components/ui/service-page-layout";
 import FAQSection from "@/components/ui/faq-section";
+import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Siding & Exterior Services Calgary | Siding Installation & Repair",
   description:
     "Professional siding and exterior upgrades for Calgary homes. Protect and improve your home's appearance with durable, weather-resistant materials. Call (587) 891-9200.",
   keywords: ["siding Calgary", "siding installation Calgary", "vinyl siding Calgary", "exterior renovation Calgary", "fascia soffit Calgary"],
-  alternates: { canonical: "https://www.fourbrothersexteriors.com/siding-exterior" },
+  alternates: { canonical: `${SITE_URL}/siding-exterior` },
   openGraph: {
     title: "Siding & Exterior Services Calgary | Four Brothers Exteriors",
     description: "Professional siding and exterior upgrades to protect and improve your home's appearance. Call (587) 891-9200.",
-    url: "https://www.fourbrothersexteriors.com/siding-exterior",
+    url: `${SITE_URL}/siding-exterior`,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Siding & Exterior Services Calgary" }],
   },
   twitter: {

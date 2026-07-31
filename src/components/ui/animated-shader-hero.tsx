@@ -169,15 +169,17 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
         )}
 
         <div className="text-center space-y-6 max-w-5xl mx-auto">
-          <div className="space-y-2">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black hero-fade-up delay-200"
+          <div className="space-y-2" aria-hidden="true">
+            {/* Decorative gradient headline — the real <h1> for SEO/a11y lives
+                in the visually-hidden NAP block rendered right after this hero. */}
+            <div className="text-5xl md:text-7xl lg:text-8xl font-black hero-fade-up delay-200"
               style={{ background: "linear-gradient(to right, #10B981, #059669, #10B981)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               {headline.line1}
-            </h1>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black hero-fade-up delay-400"
+            </div>
+            <div className="text-5xl md:text-7xl lg:text-8xl font-black hero-fade-up delay-400"
               style={{ background: "linear-gradient(to right, #FFFFFF, #10B981, #FFFFFF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
               {headline.line2}
-            </h1>
+            </div>
           </div>
 
           <div className="max-w-3xl mx-auto hero-fade-up delay-600">

@@ -1,15 +1,17 @@
+import { SITE_URL } from "@/lib/config";
+
 export default function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "HomeAndConstructionBusiness", "RoofingContractor"],
-    "@id": "https://www.fourbrothersexteriors.com",
+    "@id": SITE_URL,
     name: "Four Brothers Exteriors",
     alternateName: "Four Brothers Exteriors Calgary",
     description:
       "Calgary's trusted local roofing and exterior experts. Roof installation, roof repair, and siding services for Calgary homes and businesses. Honest pricing, licensed & insured, workmanship guarantee.",
-    url: "https://www.fourbrothersexteriors.com",
-    logo: "https://www.fourbrothersexteriors.com/icon.png",
-    image: "https://www.fourbrothersexteriors.com/icon.png",
+    url: SITE_URL,
+    logo: `${SITE_URL}/icon.png`,
+    image: `${SITE_URL}/icon.png`,
     telephone: "+15878919200",
     email: "fourbrothersexterior@gmail.com",
     slogan: "Calgary's Trusted Roofing & Exterior Experts",
@@ -48,9 +50,9 @@ export default function LocalBusinessSchema() {
       "@type": "OfferCatalog",
       name: "Roofing & Exterior Services",
       itemListElement: [
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Roof Installation", url: "https://www.fourbrothersexteriors.com/roof-installation" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Roof Repair", url: "https://www.fourbrothersexteriors.com/roof-repair" } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Siding & Exterior", url: "https://www.fourbrothersexteriors.com/siding-exterior" } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Roof Installation", url: `${SITE_URL}/roof-installation` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Roof Repair", url: `${SITE_URL}/roof-repair` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Siding & Exterior", url: `${SITE_URL}/siding-exterior` } },
       ],
     },
     sameAs: [],

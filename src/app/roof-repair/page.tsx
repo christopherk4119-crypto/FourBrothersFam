@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import ServicePageLayout from "@/components/ui/service-page-layout";
 import FAQSection from "@/components/ui/faq-section";
+import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Roof Repair Calgary | Leak & Storm Damage Repair",
   description:
     "Fast, reliable roof repair in Calgary for leaks, storm damage, and wear. Emergency service available. Honest pricing, licensed & insured. Call (587) 891-9200.",
   keywords: ["roof repair Calgary", "roof leak repair Calgary", "emergency roof repair Calgary", "hail damage roof repair Calgary", "shingle repair Calgary"],
-  alternates: { canonical: "https://www.fourbrothersexteriors.com/roof-repair" },
+  alternates: { canonical: `${SITE_URL}/roof-repair` },
   openGraph: {
     title: "Roof Repair Calgary | Four Brothers Exteriors",
     description: "Fast, reliable repairs for leaks, storm damage, and wear. Emergency service available. Call (587) 891-9200.",
-    url: "https://www.fourbrothersexteriors.com/roof-repair",
+    url: `${SITE_URL}/roof-repair`,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Roof Repair Calgary" }],
   },
   twitter: {

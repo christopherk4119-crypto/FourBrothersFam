@@ -29,7 +29,7 @@ export async function submitToWeb3Forms(data: QuoteSubmission): Promise<SubmitRe
   formData.append("name", data.name);
   if (phone) formData.append("phone", phone);
   if (email) formData.append("email", email);
-  if (!email) formData.append("replyto", "no-reply@fourbrothersexteriors.com");
+  if (!email) formData.append("replyto", "no-reply@fourbrothersexteriors.ca");
   formData.append("service", data.service ?? "Not specified");
   formData.append("message", data.message || "(no additional details provided)");
   formData.append("subject", `New Quote Request — ${data.name} — ${data.service ?? "General"}`);

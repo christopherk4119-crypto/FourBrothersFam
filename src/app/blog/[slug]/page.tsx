@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost } from "@/lib/blog-posts";
 import BlogPostLayout from "@/components/ui/blog-post-layout";
+import { SITE_URL } from "@/lib/config";
 
-const siteUrl = "https://www.fourbrothersexteriors.com";
+const siteUrl = SITE_URL;
 
 export function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));

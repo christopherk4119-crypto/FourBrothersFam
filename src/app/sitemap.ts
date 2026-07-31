@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { blogPosts } from "@/lib/blog-posts";
+import { SITE_URL } from "@/lib/config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://www.fourbrothersexteriors.com";
+  const base = SITE_URL;
   return [
     { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${base}/roof-installation`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },

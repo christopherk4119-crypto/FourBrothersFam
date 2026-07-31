@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Image as ImageIcon, Calendar } from "lucide-react";
 import { blogPosts } from "@/lib/blog-posts";
+import { SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Roofing Blog | Tips & Guides for Calgary Homeowners",
@@ -14,11 +15,11 @@ export const metadata: Metadata = {
     "Calgary roofing guide",
     "roof maintenance Calgary",
   ],
-  alternates: { canonical: "https://www.fourbrothersexteriors.com/blog" },
+  alternates: { canonical: `${SITE_URL}/blog` },
   openGraph: {
     title: "Roofing Blog | Four Brothers Exteriors Calgary",
     description: "Roofing tips, material guides, and honest advice for Calgary homeowners.",
-    url: "https://www.fourbrothersexteriors.com/blog",
+    url: `${SITE_URL}/blog`,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Roofing Blog" }],
   },
   twitter: {

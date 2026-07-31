@@ -5,11 +5,12 @@ import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 import PopupForm from "@/components/ui/popup-form";
 import LocalBusinessSchema from "@/components/ui/local-business-schema";
+import { SITE_URL } from "@/lib/config";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "600", "700", "900"] });
 const oswald = Oswald({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display" });
 
-const siteUrl = "https://www.fourbrothersexteriors.com";
+const siteUrl = SITE_URL;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Four Brothers Exteriors",
   },
   description:
-    "Calgary's trusted local roofing and exterior experts. Roof installation, roof repair, and siding services for Calgary homes and businesses. Honest pricing, licensed & insured. Call (587) 891-9200.",
+    "Calgary's trusted local roofing and exterior experts. Roof installation, repair, and siding — honest pricing, licensed & insured. Call (587) 891-9200.",
   keywords: [
     "roofing Calgary",
     "roof repair Calgary",

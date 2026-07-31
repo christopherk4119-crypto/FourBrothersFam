@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
     slug: "roof-material-durability-weather-resistance-calgary",
     title: "Roof Materials 101: Understanding Durability and Weather Resistance in Calgary",
     metaDescription:
-      "Learn what makes certain roofing materials more durable in Calgary's climate — from summer heat to winter cold — and how to choose materials that protect your home year-round.",
+      "What makes a roofing material durable in Calgary's climate? Here's how to choose materials that protect your home year-round.",
     excerpt:
       "What makes a roofing material durable in Calgary's climate? Here's what to look for before your next install or replacement.",
     date: "2026-01-19",

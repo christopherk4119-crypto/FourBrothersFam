@@ -7,6 +7,8 @@
 export const WEB3FORMS_ACCESS_KEY =
   process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "b8c6ff9f-764f-42e4-aa2d-0e5c46870521";
 
+export const SITE_URL = "https://www.fourbrothersexteriors.ca";
+
 export const BUSINESS_NAME = "Four Brothers Exteriors";
 export const PRIMARY_PHONE_DISPLAY = "(587) 891-9200";
 export const PRIMARY_PHONE_TEL = "5878919200";

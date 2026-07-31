@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import FAQSection from "@/components/ui/faq-section";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "FAQ | Calgary Roofing & Exterior Questions Answered",
   description:
-    "Answers to common questions about roof repair, roof installation, and siding in Calgary. Pricing, permits, timelines, gutter repair, roof winterizing, and more. Four Brothers Exteriors — (587) 891-9200.",
+    "Answers to common questions about roof repair, installation, and siding in Calgary — pricing, permits, timelines, and more. Call (587) 891-9200.",
   keywords: [
     "roofing FAQ Calgary",
     "is my roof leaking Calgary",
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     "roof replacement cost Calgary",
     "emergency roof repair Calgary",
   ],
-  alternates: { canonical: "https://www.fourbrothersexteriors.com/faq" },
+  alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
     title: "FAQ | Four Brothers Exteriors Calgary",
     description: "Common questions about roof repair, roof installation, and siding in Calgary. Call (587) 891-9200.",
-    url: "https://www.fourbrothersexteriors.com/faq",
+    url: `${SITE_URL}/faq`,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Roofing & Exterior FAQs" }],
   },
   twitter: {
