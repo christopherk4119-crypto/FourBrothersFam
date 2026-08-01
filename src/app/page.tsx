@@ -208,20 +208,32 @@ export default function HomePage() {
             <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
               Family-Owned. <span style={{ color: "#D4AF37" }}>Built to Last.</span>
             </h2>
-            <div className="relative max-w-2xl mx-auto mb-14">
+            <div className="relative max-w-2xl mx-auto mb-14 text-left">
               <span
                 className="absolute select-none pointer-events-none"
-                style={{ top: -48, left: -8, fontSize: 120, color: "rgba(212,175,55,0.15)", fontFamily: "Georgia, serif", lineHeight: 1 }}
+                style={{ top: -56, left: -8, fontSize: 120, color: "rgba(212,175,55,0.15)", fontFamily: "Georgia, serif", lineHeight: 1 }}
                 aria-hidden="true"
               >
                 &ldquo;
               </span>
-              <p className="text-2xl text-gray-200 leading-snug font-medium relative">
-                A family-owned Calgary roofing company built on{" "}
-                <span style={{ color: "#D4AF37" }}>honest, dependable, high-quality roofing services</span>{" "}
-                — and a legacy we&apos;re building for the next generation.
+              <p className="text-xl text-gray-200 leading-relaxed relative mb-5">
+                Our roofing business was founded as a{" "}
+                <span style={{ color: "#D4AF37" }}>family-owned company</span> with a simple
+                vision: to provide honest, dependable, and high-quality roofing services while
+                building a legacy that can be passed on to future generations. We believe that
+                every customer should be treated like a neighbor, and every roof should be
+                completed with the same level of care and attention we would give our own home.
               </p>
-              <p className="text-gray-500 text-sm italic mt-5">— Kuzay &amp; Suhrab, Co-Founders</p>
+              <p className="text-xl text-gray-200 leading-relaxed relative">
+                The idea for our business came from years of experience in the construction
+                industry and a shared passion within our family for skilled craftsmanship and
+                hard work. We saw the need for a roofing company that values{" "}
+                <span style={{ color: "#D4AF37" }}>integrity, clear communication, and lasting
+                relationships</span> just as much as quality workmanship. Rather than focusing
+                only on completing projects, we wanted to create a business built on trust,
+                accountability, and a strong reputation in our community.
+              </p>
+              <p className="text-gray-500 text-sm italic mt-6 text-center">— Kuzay &amp; Suhrab, Co-Founders</p>
             </div>
           </FadeIn>
 
