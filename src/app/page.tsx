@@ -7,7 +7,7 @@ import QuoteForm from "@/components/ui/quote-form";
 import Gallery from "@/components/ui/gallery";
 import {
   Phone, Mail, Home as HomeIcon, HardHat, PanelsTopLeft, ShieldCheck,
-  MapPin, Handshake, Wallet,
+  MapPin, Handshake,
 } from "lucide-react";
 import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, CONTACT_EMAIL } from "@/lib/config";
 
@@ -54,12 +54,12 @@ const reasons = [
 const team = [
   {
     role: "Co-Founder",
-    name: "Name Coming Soon",
+    name: "Kuzay",
     bio: "Brings years of hands-on roofing experience earned working with established Calgary roofing companies before helping start Four Brothers Exteriors. Focused on quality workmanship and doing the job right the first time.",
   },
   {
     role: "Co-Founder",
-    name: "Name Coming Soon",
+    name: "Suhrab",
     bio: "Learned the trade from the ground up on real Calgary job sites before co-founding Four Brothers Exteriors. Believes in honest pricing, clear communication, and treating every home like his own.",
   },
 ];
@@ -202,23 +202,23 @@ export default function HomePage() {
                   About Us
                 </div>
                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-                  Built on Experience. <span style={{ color: "#D4AF37" }}>Focused on Quality.</span>
+                  Family-Owned. <span style={{ color: "#D4AF37" }}>Built to Last.</span>
                 </h2>
                 <div
                   className="pl-5 mb-6"
                   style={{ borderLeft: "3px solid #D4AF37" }}
                 >
                   <p className="text-xl text-gray-200 leading-snug font-medium">
-                    Built on years of hands-on Calgary roofing experience —
-                    now our own company, with one simple goal:{" "}
-                    <span style={{ color: "#D4AF37" }}>honest service, reliable workmanship, results you can trust.</span>
+                    A family-owned Calgary roofing company built on{" "}
+                    <span style={{ color: "#D4AF37" }}>honest, dependable, high-quality roofing services</span>{" "}
+                    — and a legacy we&apos;re building for the next generation.
                   </p>
                 </div>
                 <div className="space-y-4">
                   {[
-                    { icon: HardHat, text: "Years of hands-on experience with established roofing and exterior companies across Calgary" },
-                    { icon: Handshake, text: "We take pride in doing every job right the first time — small repair or full exterior project" },
-                    { icon: Wallet, text: "No matter your budget, we work with you to find the right solution for your home" },
+                    { icon: HardHat, text: "Founded on years of hands-on experience in the Calgary construction and roofing industry, and a shared family passion for skilled craftsmanship" },
+                    { icon: Handshake, text: "Every customer is treated like a neighbor, and every roof gets the same care and attention we'd give our own home" },
+                    { icon: ShieldCheck, text: "Built on integrity, clear communication, and lasting relationships — not just completed projects" },
                   ].map((item) => (
                     <div key={item.text} className="flex items-start gap-4">
                       <div
@@ -231,6 +231,7 @@ export default function HomePage() {
                     </div>
                   ))}
                 </div>
+                <p className="text-gray-500 text-sm italic mt-6">— Kuzay &amp; Suhrab, Co-Founders</p>
                 <div className="grid grid-cols-3 gap-4 mt-8">
                   {[
                     { number: "2", label: "Brothers Running It" },
