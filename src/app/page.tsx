@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import AnimatedShaderHero from "@/components/ui/animated-shader-hero";
 import QuoteForm from "@/components/ui/quote-form";
 import Gallery from "@/components/ui/gallery";
@@ -192,80 +191,81 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT */}
-      <section className="section" id="about">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <FadeIn>
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6"
-                  style={{ background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.3)", color: "#D4AF37" }}>
-                  About Us
+      <section className="section relative overflow-hidden" id="about">
+        <div className="absolute inset-0 pointer-events-none" style={{
+          background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(212,175,55,0.06) 0%, transparent 70%)",
+        }} />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: "linear-gradient(rgba(212,175,55,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.025) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }} />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <FadeIn>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-6"
+              style={{ background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.3)", color: "#D4AF37" }}>
+              About Us
+            </div>
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
+              Family-Owned. <span style={{ color: "#D4AF37" }}>Built to Last.</span>
+            </h2>
+            <div className="relative max-w-2xl mx-auto mb-14">
+              <span
+                className="absolute select-none pointer-events-none"
+                style={{ top: -48, left: -8, fontSize: 120, color: "rgba(212,175,55,0.15)", fontFamily: "Georgia, serif", lineHeight: 1 }}
+                aria-hidden="true"
+              >
+                &ldquo;
+              </span>
+              <p className="text-2xl text-gray-200 leading-snug font-medium relative">
+                A family-owned Calgary roofing company built on{" "}
+                <span style={{ color: "#D4AF37" }}>honest, dependable, high-quality roofing services</span>{" "}
+                — and a legacy we&apos;re building for the next generation.
+              </p>
+              <p className="text-gray-500 text-sm italic mt-5">— Kuzay &amp; Suhrab, Co-Founders</p>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+            {[
+              { icon: HardHat, text: "Founded on years of hands-on experience in the Calgary construction and roofing industry, and a shared family passion for skilled craftsmanship" },
+              { icon: Handshake, text: "Every customer is treated like a neighbor, and every roof gets the same care and attention we'd give our own home" },
+              { icon: ShieldCheck, text: "Built on integrity, clear communication, and lasting relationships — not just completed projects" },
+            ].map((item, i) => (
+              <FadeIn key={item.text} delay={i * 100}>
+                <div className="h-full p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(212,175,55,0.12)" }}>
+                  <div
+                    className="flex items-center justify-center rounded-full mx-auto mb-4"
+                    style={{ width: 48, height: 48, background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.3)" }}
+                  >
+                    <item.icon size={20} style={{ color: "#D4AF37" }} />
+                  </div>
+                  <p className="text-gray-300 text-sm leading-relaxed">{item.text}</p>
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
-                  Family-Owned. <span style={{ color: "#D4AF37" }}>Built to Last.</span>
-                </h2>
-                <div
-                  className="pl-5 mb-6"
-                  style={{ borderLeft: "3px solid #D4AF37" }}
-                >
-                  <p className="text-xl text-gray-200 leading-snug font-medium">
-                    A family-owned Calgary roofing company built on{" "}
-                    <span style={{ color: "#D4AF37" }}>honest, dependable, high-quality roofing services</span>{" "}
-                    — and a legacy we&apos;re building for the next generation.
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  {[
-                    { icon: HardHat, text: "Founded on years of hands-on experience in the Calgary construction and roofing industry, and a shared family passion for skilled craftsmanship" },
-                    { icon: Handshake, text: "Every customer is treated like a neighbor, and every roof gets the same care and attention we'd give our own home" },
-                    { icon: ShieldCheck, text: "Built on integrity, clear communication, and lasting relationships — not just completed projects" },
-                  ].map((item) => (
-                    <div key={item.text} className="flex items-start gap-4">
-                      <div
-                        className="flex items-center justify-center rounded-full shrink-0"
-                        style={{ width: 40, height: 40, background: "rgba(212,175,55,0.1)", border: "1px solid rgba(212,175,55,0.3)" }}
-                      >
-                        <item.icon size={18} style={{ color: "#D4AF37" }} />
-                      </div>
-                      <p className="text-gray-300 leading-relaxed pt-2">{item.text}</p>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-gray-500 text-sm italic mt-6">— Kuzay &amp; Suhrab, Co-Founders</p>
-                <div className="grid grid-cols-3 gap-4 mt-8">
-                  {[
-                    { number: "2", label: "Brothers Running It" },
-                    { number: "100%", label: "Honest Pricing" },
-                    { number: "0", label: "Hidden Fees" },
-                  ].map((stat) => (
-                    <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: "#111", border: "1px solid rgba(212,175,55,0.15)" }}>
-                      <div className="text-3xl font-black" style={{ color: "#D4AF37" }}>{stat.number}</div>
-                      <div className="text-gray-400 text-xs mt-1">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-                <a href={`tel:${PRIMARY_PHONE_TEL}`} className="inline-block mt-8 px-8 py-4 rounded-full font-black text-black text-lg hover:scale-105 transition-transform duration-200"
-                  style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}>
-                  Call Us Now
-                </a>
-                <p className="text-gray-400 text-sm mt-3">
-                  No answer? Call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
-                </p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={150}>
-              <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 420, border: "2px solid rgba(212,175,55,0.15)" }}>
-                <Image
-                  src="/images/gallery/roofing/calgary-roof-installation-aerial-view-sunset-1.webp"
-                  alt="Aerial sunset view of a Calgary home roof serviced by Four Brothers Exteriors"
-                  width={700}
-                  height={900}
-                  className="w-full h-full object-cover"
-                  style={{ minHeight: 420 }}
-                />
-              </div>
-            </FadeIn>
+              </FadeIn>
+            ))}
           </div>
+
+          <FadeIn delay={200}>
+            <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-10">
+              {[
+                { number: "2", label: "Brothers Running It" },
+                { number: "100%", label: "Honest Pricing" },
+                { number: "0", label: "Hidden Fees" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center p-4 rounded-xl" style={{ background: "#111", border: "1px solid rgba(212,175,55,0.15)" }}>
+                  <div className="text-3xl font-black" style={{ color: "#D4AF37" }}>{stat.number}</div>
+                  <div className="text-gray-400 text-xs mt-1">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            <a href={`tel:${PRIMARY_PHONE_TEL}`} className="inline-block px-8 py-4 rounded-full font-black text-black text-lg hover:scale-105 transition-transform duration-200"
+              style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}>
+              Call Us Now
+            </a>
+            <p className="text-gray-400 text-sm mt-3">
+              No answer? Call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
+            </p>
+          </FadeIn>
         </div>
       </section>
 
