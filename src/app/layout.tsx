@@ -15,12 +15,14 @@ const siteUrl = SITE_URL;
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Four Brothers Exteriors | Calgary Roofing & Exterior Services",
+    default: "Calgary Roofing & Hail Damage Repair | Four Brothers Exteriors",
     template: "%s | Four Brothers Exteriors",
   },
   description:
-    "Calgary's trusted local roofing and exterior experts. Roof installation, repair, and siding — honest pricing, licensed & insured. Call (587) 891-9200.",
+    "Calgary's trusted roofing experts — hail damage repair, roof installation, repair & siding. Honest pricing, licensed & insured. Call (587) 891-9200.",
   keywords: [
+    "hail damage repair Calgary",
+    "hail damage roof repair Calgary",
     "roofing Calgary",
     "roof repair Calgary",
     "roof installation Calgary",
@@ -43,15 +45,15 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: siteUrl,
     siteName: "Four Brothers Exteriors",
-    title: "Four Brothers Exteriors | Calgary Roofing & Exterior Services",
+    title: "Calgary Roofing & Hail Damage Repair | Four Brothers Exteriors",
     description:
-      "Calgary's trusted local roofing and exterior experts. Honest pricing, quality workmanship, and reliable service. Call (587) 891-9200.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Calgary Roofing & Exterior Experts" }],
+      "Calgary's trusted roofing experts — hail damage repair, honest pricing, quality workmanship, and reliable service. Call (587) 891-9200.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Four Brothers Exteriors — Calgary Roofing & Hail Damage Repair Experts" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Four Brothers Exteriors — Calgary's Trusted Roofing & Exterior Experts",
-    description: "Roofing, repairs & siding for Calgary homes and businesses. Call (587) 891-9200.",
+    title: "Calgary Roofing & Hail Damage Repair | Four Brothers Exteriors",
+    description: "Hail damage repair, roof repairs & siding for Calgary homes and businesses. Call (587) 891-9200.",
     images: ["/og-image.png"],
   },
   alternates: { canonical: siteUrl },
