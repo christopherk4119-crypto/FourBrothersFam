@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from "react";
 
 interface HeroProps {
   trustBadge?: { text: string; icons?: string[] };
+  stormBanner?: { text: string; tel: string };
   headline: { line1: string; line2: string };
   subtitle: string;
   buttons?: {
@@ -118,6 +119,7 @@ function useShaderBackground() {
 
 const AnimatedShaderHero: React.FC<HeroProps> = ({
   trustBadge,
+  stormBanner,
   headline,
   subtitle,
   buttons,
@@ -148,6 +150,7 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
         .delay-600 { animation-delay: 0.6s; }
         .delay-800 { animation-delay: 0.8s; }
         .pulse-brass:hover { animation: pulse-brass 1.2s infinite; }
+        .pulse-brass-always { animation: pulse-brass 2s infinite; }
       `}</style>
 
       <canvas
@@ -158,7 +161,7 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
 
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white px-4">
         {trustBadge && (
-          <div className="mb-8 hero-fade-down">
+          <div className="mb-4 hero-fade-down">
             <div className="flex items-center gap-2 px-6 py-3 bg-emerald-500/10 backdrop-blur-md border border-emerald-400/30 rounded-full text-sm">
               {trustBadge.icons?.map((icon, i) => (
                 <span key={i} className="text-emerald-300">{icon}</span>
@@ -166,6 +169,17 @@ const AnimatedShaderHero: React.FC<HeroProps> = ({
               <span className="text-emerald-100">{trustBadge.text}</span>
             </div>
           </div>
+        )}
+
+        {stormBanner && (
+          <a
+            href={`tel:${stormBanner.tel}`}
+            className="pulse-brass-always mb-8 hero-fade-down flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold text-black transition-transform duration-300 hover:scale-105"
+            style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}
+          >
+            <span>⛈️</span>
+            <span>{stormBanner.text}</span>
+          </a>
         )}
 
         <div className="text-center space-y-6 max-w-5xl mx-auto">

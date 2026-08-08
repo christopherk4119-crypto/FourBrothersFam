@@ -12,8 +12,14 @@ export const SITE_URL = "https://www.fourbrothersexteriors.ca";
 export const BUSINESS_NAME = "Four Brothers Exteriors";
 export const PRIMARY_PHONE_DISPLAY = "(587) 891-9200";
 export const PRIMARY_PHONE_TEL = "5878919200";
-export const SECONDARY_PHONE_DISPLAY = "(514) 348-1366";
-export const SECONDARY_PHONE_TEL = "5143481366";
 export const CONTACT_EMAIL = "fourbrothersexterior@gmail.com";
 
-export const SERVICE_TYPES = ["Roof Repair", "Roof Installation", "Siding & Exterior", "Other"] as const;
+export const SERVICE_TYPES = [
+  "Roof Repair",
+  "Roof Installation",
+  "Siding & Exterior",
+  "Hail Damage Repair",
+  "Insurance Claim Help",
+  "Free Roof Inspection",
+  "Other",
+] as const;

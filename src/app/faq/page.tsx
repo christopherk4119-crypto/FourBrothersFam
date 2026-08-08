@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import FAQSection from "@/components/ui/faq-section";
 import BreadcrumbSchema from "@/components/ui/breadcrumb-schema";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, SITE_URL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SITE_URL } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "FAQ | Calgary Roofing & Exterior Questions Answered",
@@ -150,9 +150,6 @@ export default function FAQPage() {
           <a href={`tel:${PRIMARY_PHONE_TEL}`} className="btn-gold inline-block px-10 py-4 text-lg font-black">
             Call {PRIMARY_PHONE_DISPLAY}
           </a>
-          <p className="text-gray-300 text-base mt-4">
-            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
-          </p>
         </div>
       </section>
     </>

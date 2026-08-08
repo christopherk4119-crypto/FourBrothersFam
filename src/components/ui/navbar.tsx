@@ -4,11 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, Home, Wrench, Mail } from "lucide-react";
 import RoofIcon from "@/components/ui/roof-icon";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL } from "@/lib/config";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/#services", label: "Services" },
+  { href: "/hail-damage-repair", label: "Hail" },
+  { href: "/insurance-claim-help", label: "Insurance" },
+  { href: "/free-roof-inspection", label: "Inspection" },
   { href: "/#gallery", label: "Projects" },
   { href: "/#about", label: "About" },
   { href: "/faq", label: "FAQ" },
@@ -97,7 +100,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-4 xl:gap-6">
+          <div className="hidden md:flex items-center gap-3 xl:gap-4">
             {navLinks.map((l) => (
               <Link
                 key={l.href}
@@ -111,20 +114,14 @@ export default function Navbar() {
           </div>
 
           {/* Right Side */}
-          <div className="hidden md:flex items-center gap-4">
-            <div className="flex flex-col gap-1">
-              <a href={`tel:${PRIMARY_PHONE_TEL}`} className="flex items-center gap-2 text-white font-bold text-sm">
-                <Phone size={16} style={{ color: "#D4AF37" }} />
-                {PRIMARY_PHONE_DISPLAY}
-              </a>
-              <a href={`tel:${SECONDARY_PHONE_TEL}`} className="flex items-center gap-2 font-bold text-sm" style={{ color: "#10B981" }}>
-                <Phone size={16} style={{ color: "#10B981" }} />
-                {SECONDARY_PHONE_DISPLAY}
-              </a>
-            </div>
+          <div className="hidden md:flex items-center gap-4 shrink-0">
+            <a href={`tel:${PRIMARY_PHONE_TEL}`} className="flex items-center gap-2 text-white font-bold text-sm whitespace-nowrap">
+              <Phone size={16} style={{ color: "#D4AF37" }} />
+              {PRIMARY_PHONE_DISPLAY}
+            </a>
             <Link
               href="/#contact"
-              className="px-5 py-2 rounded-full font-bold text-sm text-black transition-all duration-200 hover:scale-105"
+              className="px-5 py-2 rounded-full font-bold text-sm text-black transition-all duration-200 hover:scale-105 whitespace-nowrap"
               style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}
             >
               Get a Free Quote
@@ -177,10 +174,6 @@ export default function Navbar() {
               <a href={`tel:${PRIMARY_PHONE_TEL}`} className="flex items-center gap-2 text-white font-bold">
                 <Phone size={16} style={{ color: "#D4AF37" }} />
                 {PRIMARY_PHONE_DISPLAY}
-              </a>
-              <a href={`tel:${SECONDARY_PHONE_TEL}`} className="flex items-center gap-2 font-bold" style={{ color: "#10B981" }}>
-                <Phone size={16} style={{ color: "#10B981" }} />
-                {SECONDARY_PHONE_DISPLAY}
               </a>
               <Link
                 href="/#contact"

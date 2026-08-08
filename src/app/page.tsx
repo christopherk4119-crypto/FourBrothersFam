@@ -6,9 +6,9 @@ import QuoteForm from "@/components/ui/quote-form";
 import Gallery from "@/components/ui/gallery";
 import {
   Phone, Mail, Home as HomeIcon, HardHat, PanelsTopLeft, ShieldCheck,
-  MapPin, Handshake,
+  MapPin, Handshake, CloudHail, FileSearch, ClipboardCheck,
 } from "lucide-react";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, CONTACT_EMAIL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, CONTACT_EMAIL } from "@/lib/config";
 
 const homeGallery = [
   { src: "/images/gallery/roofing/calgary-roof-installation-aerial-view-sunset-1.webp", alt: "Aerial sunset view of a completed shingle roof installation in Calgary" },
@@ -38,6 +38,24 @@ const services = [
     title: "Siding & Exterior",
     desc: "Professional siding and exterior upgrades to protect and improve your home's appearance.",
     href: "/siding-exterior",
+  },
+  {
+    icon: <CloudHail size={28} />,
+    title: "Hail Damage Repair",
+    desc: "Free hail damage inspection and honest, fast repairs for Calgary roofs after a storm.",
+    href: "/hail-damage-repair",
+  },
+  {
+    icon: <ClipboardCheck size={28} />,
+    title: "Insurance Claim Help",
+    desc: "Thorough damage documentation and honest guidance through the insurance claims process.",
+    href: "/insurance-claim-help",
+  },
+  {
+    icon: <FileSearch size={28} />,
+    title: "Free Roof Inspection",
+    desc: "A full, no-obligation roof check with honest findings — no cost, no pressure.",
+    href: "/free-roof-inspection",
   },
 ];
 
@@ -108,13 +126,13 @@ export default function HomePage() {
     <>
       <AnimatedShaderHero
         trustBadge={{ text: "Licensed & Insured · Honest, Upfront Pricing · Workmanship Guarantee", icons: ["🏠"] }}
+        stormBanner={{ text: `Hail damage? Free roof inspection — call ${PRIMARY_PHONE_DISPLAY}`, tel: PRIMARY_PHONE_TEL }}
         headline={{ line1: "Calgary's Trusted Local", line2: "Roofing Experts" }}
         subtitle="Quality Work You Can Rely On — Roofing, Siding & Exterior Services for Calgary Homes and Businesses"
         buttons={{
           primary: { text: "Get a Free Quote", onClick: () => document.getElementById("quote")?.scrollIntoView({ behavior: "smooth" }) },
           secondary: { text: `Call Now: ${PRIMARY_PHONE_DISPLAY}`, onClick: () => { window.location.href = `tel:${PRIMARY_PHONE_TEL}`; } },
         }}
-        footnote={<>No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold text-base" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a></>}
       />
 
       {/* SEO: visually hidden h1 and NAP */}
@@ -260,7 +278,7 @@ export default function HomePage() {
           <FadeIn delay={200}>
             <div className="grid grid-cols-3 gap-4 max-w-md mx-auto mb-10">
               {[
-                { number: "2", label: "Brothers Running It" },
+                { number: "Free", label: "Estimates" },
                 { number: "100%", label: "Honest Pricing" },
                 { number: "0", label: "Hidden Fees" },
               ].map((stat) => (
@@ -274,9 +292,6 @@ export default function HomePage() {
               style={{ background: "linear-gradient(135deg, #D4AF37, #9B7A22)" }}>
               Call Us Now
             </a>
-            <p className="text-gray-400 text-sm mt-3">
-              No answer? Call <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
-            </p>
           </FadeIn>
         </div>
       </section>
@@ -374,8 +389,6 @@ export default function HomePage() {
                     <span className="text-gray-400 text-sm uppercase tracking-widest font-semibold">Call Us</span>
                   </div>
                   <a href={`tel:${PRIMARY_PHONE_TEL}`} className="text-3xl font-black text-white hover:text-[#E8C766] transition-colors block">{PRIMARY_PHONE_DISPLAY}</a>
-                  <p className="text-gray-500 text-xs mt-2 mb-1">No answer? Call our other line:</p>
-                  <a href={`tel:${SECONDARY_PHONE_TEL}`} className="text-2xl font-black transition-colors block hover:brightness-110" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
                 </div>
                 <div className="p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(212,175,55,0.1)" }}>
                   <div className="flex items-center gap-4 mb-2">

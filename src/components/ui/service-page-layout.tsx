@@ -4,7 +4,9 @@ import Gallery, { GalleryPhoto } from "@/components/ui/gallery";
 import QuoteForm from "@/components/ui/quote-form";
 import ServiceSchema from "@/components/ui/service-schema";
 import BreadcrumbSchema from "@/components/ui/breadcrumb-schema";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SERVICE_TYPES } from "@/lib/config";
+
+type ServiceType = (typeof SERVICE_TYPES)[number];
 
 interface ServiceItem {
   title: string;
@@ -18,7 +20,10 @@ interface ServicePageLayoutProps {
   heroHeadline: string;
   heroSubheadline: string;
   heroCta: string;
-  serviceType: "Roof Repair" | "Roof Installation" | "Siding & Exterior";
+  serviceType: ServiceType;
+  /** URL path for this page, e.g. "/hail-damage-repair". Required for service
+   * types that don't have a hardcoded entry in SERVICE_PATHS below. */
+  path?: string;
   services: ServiceItem[];
   galleryPhotos: GalleryPhoto[];
   learnMore?: {
@@ -43,7 +48,7 @@ function FadeIn({ children, delay = 0, className = "" }: { children: React.React
   return <div ref={ref} className={`fade-in ${className}`} style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
 }
 
-const SERVICE_PATHS: Record<ServicePageLayoutProps["serviceType"], string> = {
+const SERVICE_PATHS: Partial<Record<ServiceType, string>> = {
   "Roof Repair": "/roof-repair",
   "Roof Installation": "/roof-installation",
   "Siding & Exterior": "/siding-exterior",
@@ -54,11 +59,12 @@ export default function ServicePageLayout({
   heroSubheadline,
   heroCta,
   serviceType,
+  path: pathProp,
   services,
   galleryPhotos,
   learnMore,
 }: ServicePageLayoutProps) {
-  const path = SERVICE_PATHS[serviceType];
+  const path = pathProp ?? SERVICE_PATHS[serviceType] ?? "/";
   return (
     <>
       <ServiceSchema name={serviceType} description={heroSubheadline} path={path} />
@@ -94,9 +100,6 @@ export default function ServicePageLayout({
               Call {PRIMARY_PHONE_DISPLAY}
             </a>
           </div>
-          <p className="text-gray-300 text-base mt-5">
-            No answer? Call our other line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-bold" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
-          </p>
           <div className="flex flex-wrap justify-center gap-8 mt-10">
             {["Honest, Upfront Pricing", "Workmanship Guarantee", "Fast Response"].map((t) => (
               <div key={t} className="flex items-center gap-2 text-sm text-gray-400">
