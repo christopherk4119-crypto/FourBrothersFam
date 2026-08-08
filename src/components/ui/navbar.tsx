@@ -1,11 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Phone, Home, Wrench, Mail } from "lucide-react";
 import RoofIcon from "@/components/ui/roof-icon";
 import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL } from "@/lib/config";
 
+// Full set — used for the mobile full-screen menu, which shows everything.
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/#services", label: "Services" },
@@ -19,6 +20,17 @@ const navLinks = [
   { href: "/#contact", label: "Contact" },
 ];
 
+// Desktop keeps only the 5 highest-priority links inline; everything else
+// lives behind the "More" toggle so the bar stays uncluttered.
+const primaryLinks = [
+  { href: "/", label: "Home" },
+  { href: "/#services", label: "Services" },
+  { href: "/hail-damage-repair", label: "Hail" },
+  { href: "/#gallery", label: "Projects" },
+  { href: "/#contact", label: "Contact" },
+];
+const moreLinks = navLinks.filter((l) => !primaryLinks.some((p) => p.href === l.href));
+
 // Must match the actual top-to-bottom order of sections in src/app/page.tsx —
 // the scroll-spy below picks the last id whose top has passed the reference
 // line, so this array's order has to mirror the DOM, not the nav's order.
@@ -26,9 +38,20 @@ const SECTION_IDS = ["services", "about", "gallery", "contact"];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const pathname = usePathname();
+  const moreRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) setMoreOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, [moreOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -99,9 +122,9 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Nav — 5 primary links + a "More" toggle for the rest */}
           <div className="hidden md:flex items-center gap-3 xl:gap-4">
-            {navLinks.map((l) => (
+            {primaryLinks.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
@@ -111,6 +134,35 @@ export default function Navbar() {
                 {l.label}
               </Link>
             ))}
+            <div className="relative" ref={moreRef}>
+              <button
+                onClick={() => setMoreOpen((v) => !v)}
+                aria-label="More navigation links"
+                aria-expanded={moreOpen}
+                className="flex items-center justify-center p-1.5 rounded-md transition-colors duration-200"
+                style={{ color: moreOpen || moreLinks.some((l) => isActive(l.href)) ? "#D4AF37" : "#e5e7eb" }}
+              >
+                <Menu size={20} />
+              </button>
+              {moreOpen && (
+                <div
+                  className="absolute right-0 top-full mt-3 rounded-xl overflow-hidden z-50"
+                  style={{ background: "#0a0a0a", border: "1px solid rgba(212,175,55,0.2)", minWidth: 180, boxShadow: "0 12px 32px rgba(0,0,0,0.5)" }}
+                >
+                  {moreLinks.map((l) => (
+                    <Link
+                      key={l.href}
+                      href={l.href}
+                      onClick={() => setMoreOpen(false)}
+                      className="block px-5 py-3 font-semibold text-sm uppercase tracking-wide transition-colors duration-200 hover:bg-white/5"
+                      style={{ color: isActive(l.href) ? "#D4AF37" : "#e5e7eb" }}
+                    >
+                      {l.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Right Side */}

@@ -12,6 +12,10 @@ export const SITE_URL = "https://www.fourbrothersexteriors.ca";
 export const BUSINESS_NAME = "Four Brothers Exteriors";
 export const PRIMARY_PHONE_DISPLAY = "(587) 891-9200";
 export const PRIMARY_PHONE_TEL = "5878919200";
+// Shown only in the contact section and footer, labeled "Direct line" —
+// not a CTA number, so it's never paired with PRIMARY_PHONE in a hero or CTA block.
+export const SECONDARY_PHONE_DISPLAY = "(514) 348-1366";
+export const SECONDARY_PHONE_TEL = "5143481366";
 export const CONTACT_EMAIL = "fourbrothersexterior@gmail.com";
 
 export const SERVICE_TYPES = [

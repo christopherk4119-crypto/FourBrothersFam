@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import RoofIcon from "@/components/ui/roof-icon";
-import { PRIMARY_PHONE_TEL, PRIMARY_PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/config";
+import { PRIMARY_PHONE_TEL, PRIMARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -51,6 +51,9 @@ export default function Footer() {
             <h4 className="font-bold text-white mb-4 text-sm uppercase tracking-widest">Contact Us</h4>
             <div className="space-y-2">
               <a href={`tel:${PRIMARY_PHONE_TEL}`} className="block font-bold text-[#D4AF37] hover:text-[#E8C766]">{PRIMARY_PHONE_DISPLAY}</a>
+              <p className="text-gray-500 text-xs">
+                Direct line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-semibold hover:brightness-110" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
+              </p>
               <a href={`mailto:${CONTACT_EMAIL}`} className="block text-gray-400 hover:text-white text-sm pt-1">{CONTACT_EMAIL}</a>
               <p className="text-gray-500 text-sm pt-2">Serving Calgary, AB &amp; surrounding areas</p>
             </div>

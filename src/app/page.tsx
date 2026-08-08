@@ -8,7 +8,7 @@ import {
   Phone, Mail, Home as HomeIcon, HardHat, PanelsTopLeft, ShieldCheck,
   MapPin, Handshake, CloudHail, FileSearch, ClipboardCheck,
 } from "lucide-react";
-import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, CONTACT_EMAIL } from "@/lib/config";
+import { PRIMARY_PHONE_DISPLAY, PRIMARY_PHONE_TEL, SECONDARY_PHONE_DISPLAY, SECONDARY_PHONE_TEL, CONTACT_EMAIL } from "@/lib/config";
 
 const homeGallery = [
   { src: "/images/gallery/roofing/calgary-roof-installation-aerial-view-sunset-1.webp", alt: "Aerial sunset view of a completed shingle roof installation in Calgary" },
@@ -389,6 +389,9 @@ export default function HomePage() {
                     <span className="text-gray-400 text-sm uppercase tracking-widest font-semibold">Call Us</span>
                   </div>
                   <a href={`tel:${PRIMARY_PHONE_TEL}`} className="text-3xl font-black text-white hover:text-[#E8C766] transition-colors block">{PRIMARY_PHONE_DISPLAY}</a>
+                  <p className="text-gray-500 text-sm mt-2">
+                    Direct line: <a href={`tel:${SECONDARY_PHONE_TEL}`} className="font-semibold hover:brightness-110 transition-colors" style={{ color: "#10B981" }}>{SECONDARY_PHONE_DISPLAY}</a>
+                  </p>
                 </div>
                 <div className="p-6 rounded-2xl" style={{ background: "#111", border: "1px solid rgba(212,175,55,0.1)" }}>
                   <div className="flex items-center gap-4 mb-2">
